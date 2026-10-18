@@ -1,0 +1,1026 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>CFA L1 Ethics Navigator</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+<style>
+/* Layout: sticky header with reading tabs; each tab is a single readable column (max ~860px); R91 uses standard chips + cards */
+:root{
+  --bg:#F5F7FA; --surface:#FFFFFF; --sunk:#EDF1F6; --ink:#141C28; --muted:#55627A; --line:#D7DEE8;
+  --accent:#1F4FA8; --accent-soft:#E3EBFA; --ko:#2C5BB0;
+  --good:#1E7A4F; --good-soft:#E3F3EA; --bad:#B23A2B; --bad-soft:#FBE7E4; --warn:#9A5B00; --warn-soft:#FFF1D9;
+  --g1:#2B59C3; --g2:#B4462F; --g3:#2E7D5B; --g4:#8A5A00; --g5:#6B4FB3; --g6:#B03A78; --g7:#3D6B7A;
+  --f-display:"Noto Serif KR", Georgia, serif;
+  --f-body:"IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F141C; --surface:#161D28; --sunk:#1C2533; --ink:#E6ECF5; --muted:#9AA8BD; --line:#2A3546;
+  --accent:#8EB0F2; --accent-soft:#1E2B44; --ko:#9DBAF5;
+  --good:#6FCF9E; --good-soft:#15301F; --bad:#F2917F; --bad-soft:#3A1C18; --warn:#F2C26B; --warn-soft:#352812;
+  --g1:#8AA9F0; --g2:#F0A08C; --g3:#7FCFA8; --g4:#E6BC6A; --g5:#B9A6F0; --g6:#F09AC4; --g7:#8EC3D2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F141C; --surface:#161D28; --sunk:#1C2533; --ink:#E6ECF5; --muted:#9AA8BD; --line:#2A3546;
+  --accent:#8EB0F2; --accent-soft:#1E2B44; --ko:#9DBAF5;
+  --good:#6FCF9E; --good-soft:#15301F; --bad:#F2917F; --bad-soft:#3A1C18; --warn:#F2C26B; --warn-soft:#352812;
+  --g1:#8AA9F0; --g2:#F0A08C; --g3:#7FCFA8; --g4:#E6BC6A; --g5:#B9A6F0; --g6:#F09AC4; --g7:#8EC3D2; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.hin{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 0}
+.brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.brand h1{font-family:var(--f-display);font-size:20px;margin:0;letter-spacing:-.01em}
+.brand span{color:var(--muted);font-size:13px}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;margin-top:8px;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{flex:none;border:0;background:none;color:var(--muted);font:600 14px var(--f-body);padding:10px 12px;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+nav.tabs button small{display:block;font:500 11px var(--f-mono);letter-spacing:.04em;color:inherit;opacity:.8}
+nav.tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+nav.tabs button:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 64px}
+section.tab{display:block}
+.col{max-width:860px}
+h2.rt{font-family:var(--f-display);font-size:26px;line-height:1.3;margin:0 0 4px;text-wrap:balance}
+.rsub{color:var(--muted);margin:0 0 20px}
+h3{font-size:18px;margin:32px 0 10px;text-wrap:balance}
+h3 .los{font:600 12px var(--f-mono);color:var(--accent);background:var(--accent-soft);padding:2px 7px;border-radius:4px;margin-right:8px;vertical-align:2px}
+h4{font-size:15px;margin:18px 0 6px}
+p{margin:0 0 10px}
+.en{color:var(--ink)}
+.ko{color:var(--ko);font-size:14px}
+.pair{margin:0 0 10px}
+.pair .en{margin:0}
+.pair .ko{margin:2px 0 0}
+ul.bl{margin:0 0 12px;padding-left:20px}
+ul.bl>li{margin:0 0 8px}
+ul.bl>li .ko{display:block;margin-top:1px}
+ul.bl ul{padding-left:18px;margin-top:6px}
+b,strong{font-weight:700}
+.kw{font-weight:700;color:var(--accent)}
+.plain{background:var(--accent-soft);border-radius:8px;padding:12px 14px;margin:10px 0 14px}
+.plain .lab{font:600 12px var(--f-mono);letter-spacing:.06em;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:4px}
+.trap{background:var(--warn-soft);border-left:4px solid var(--warn);border-radius:0 8px 8px 0;padding:12px 14px;margin:12px 0}
+.trap .lab{font:600 12px var(--f-mono);letter-spacing:.06em;color:var(--warn);display:block;margin-bottom:6px;text-transform:uppercase}
+.trap ul{margin:0;padding-left:18px}.trap li{margin-bottom:6px}
+.quote{border-left:3px solid var(--accent);padding:6px 0 6px 14px;margin:10px 0 14px;font-style:italic}
+.quote .ko{font-style:normal}
+.tw{overflow-x:auto;margin:10px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{background:var(--sunk);font-weight:600;font-size:13px}
+tr:last-child td{border-bottom:0}
+td .ko{display:block;font-size:13px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:10px 0 14px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;min-width:0}
+.box h4{margin-top:0}
+.box.good{border-color:var(--good);background:var(--good-soft)}
+.box.bad{border-color:var(--bad);background:var(--bad-soft)}
+.box.good h4{color:var(--good)}.box.bad h4{color:var(--bad)}
+.box ul{margin:0;padding-left:18px}.box li{margin-bottom:6px}
+.box li .ko{display:block}
+/* map of standards */
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:12px 0 20px}
+.mapc{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:8px;padding:12px;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.mapc:hover{background:var(--sunk)}
+.mapc .num{font:600 13px var(--f-mono);color:var(--c)}
+.mapc .nm{font-weight:700;display:block;margin:2px 0}
+.mapc .who{font-size:13px;color:var(--muted)}
+/* steps */
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:10px 0 16px}
+.step{flex:1 1 160px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+.step .n{font:600 12px var(--f-mono);color:var(--accent)}
+.step b{display:block}
+/* R91 */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 92px);z-index:3;background:var(--bg);padding:8px 0}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 13px var(--f-mono);padding:5px 10px;border-radius:999px;cursor:pointer}
+.chip i{font-style:normal;display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);margin-right:6px}
+.grp{margin-top:28px;scroll-margin-top:170px}
+.grp>h3{display:flex;gap:10px;align-items:baseline;border-bottom:2px solid var(--c);padding-bottom:6px;margin-top:0}
+.grp>h3 .gn{font:600 15px var(--f-mono);color:var(--c)}
+.std{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:14px 0;scroll-margin-top:170px;overflow:hidden}
+.std>.sh{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;padding:14px 16px 10px;border-bottom:1px solid var(--line)}
+.std .code{font:600 14px var(--f-mono);color:var(--surface);background:var(--c);padding:2px 8px;border-radius:4px}
+.std .sn{font-weight:700;font-size:17px}
+.std .sk{color:var(--muted);font-size:14px}
+.std .sb{padding:12px 16px 16px}
+details{border:1px solid var(--line);border-radius:8px;margin:10px 0;background:var(--surface)}
+details>summary{cursor:pointer;padding:9px 12px;font-weight:600;font-size:14px}
+details>div{padding:0 14px 10px}
+/* sheet */
+.num-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0 18px}
+.ncell{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.ncell b{font:600 22px var(--f-mono);display:block;color:var(--accent);font-variant-numeric:tabular-nums}
+.ncell span{font-size:13px;color:var(--muted)}
+/* quiz */
+.qbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0 0 16px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 92px);z-index:3}
+.score{font:600 15px var(--f-mono);font-variant-numeric:tabular-nums}
+.score .ok{color:var(--good)}.score .ng{color:var(--bad)}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.fbtn{border:1px solid var(--line);background:var(--bg);color:var(--ink);font:600 13px var(--f-body);padding:5px 10px;border-radius:999px;cursor:pointer}
+.fbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.qbtn{border:1px solid var(--line);background:var(--bg);color:var(--ink);font:600 13px var(--f-body);padding:6px 12px;border-radius:6px;cursor:pointer}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin:0 0 14px}
+.q .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.tag{font:600 11px var(--f-mono);padding:2px 7px;border-radius:4px;background:var(--sunk);color:var(--muted)}
+.tag.std{background:none;border:1px solid var(--c);color:var(--c)}
+.q .stem{margin:0 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;padding:10px 12px;border-radius:8px;cursor:pointer}
+.opt .l{font:600 14px var(--f-mono);flex:none}
+.opt:hover:not([disabled]){border-color:var(--accent)}
+.opt[disabled]{cursor:default}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.exp{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+.exp .verdict{font-weight:700;margin-bottom:4px}
+.exp .verdict.ok{color:var(--good)}.exp .verdict.ng{color:var(--bad)}
+.note{font-size:13px;color:var(--muted)}
+footer{color:var(--muted);font-size:12px;margin-top:40px}
+@media (max-width:600px){h2.rt{font-size:22px}.chips,.qbar{position:static}.brand span{display:none}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<header>
+  <div class="hin">
+    <div class="brand"><h1>CFA L1 Ethics Navigator</h1><span>Ethical and Professional Standards · Schweser R89–R93 · EN/KR</span></div>
+    <nav class="tabs" role="tablist" id="tabs"></nav>
+  </div>
+</header>
+<main id="main"></main>
+
+<script>
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const esc=s=>s; // content is authored, contains intentional <b>
+const bi=(en,ko)=>`<div class="pair"><p class="en">${en}</p>${ko?`<p class="ko">${ko}</p>`:''}</div>`;
+const li=arr=>`<ul class="bl">${arr.map(x=>Array.isArray(x)?`<li><span class="en">${x[0]}</span>${x[1]?`<span class="ko">${x[1]}</span>`:''}${x[2]?`<ul>${x[2].map(y=>`<li><span class="en">${y[0]}</span>${y[1]?`<span class="ko">${y[1]}</span>`:''}</li>`).join('')}</ul>`:''}</li>`:`<li>${x}</li>`).join('')}</ul>`;
+const plain=(t,lab='쉽게 말하면')=>`<div class="plain"><span class="lab">${lab}</span>${t}</div>`;
+const trap=(arr,lab='Exam trap · 시험 함정')=>`<div class="trap"><span class="lab">${lab}</span><ul>${arr.map(x=>`<li><span class="en">${x[0]}</span>${x[1]?`<br><span class="ko">${x[1]}</span>`:''}</li>`).join('')}</ul></div>`;
+const table=(heads,rows)=>`<div class="tw"><table><thead><tr>${heads.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${Array.isArray(c)?`<span class="en">${c[0]}</span>${c[1]?`<span class="ko">${c[1]}</span>`:''}`:c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+const quote=(en,ko)=>`<div class="quote"><p class="en" style="margin:0">${en}</p>${ko?`<p class="ko" style="margin:4px 0 0">${ko}</p>`:''}</div>`;
+const G={I:'--g1',II:'--g2',III:'--g3',IV:'--g4',V:'--g5',VI:'--g6',VII:'--g7'};
+const cvar=g=>`var(${G[g]})`;
+
+/* ---------- TAB DEFINITIONS ---------- */
+const TABS=[
+ ['overview','Overview','시작하기'],
+ ['r89','R89','Ethics & Trust'],
+ ['r90','R90','Code & Standards'],
+ ['r91','R91','Standards I–VII'],
+ ['r92','R92','GIPS'],
+ ['r93','R93','Ethics Application'],
+ ['sheet','Cheat Sheet','비교·암기'],
+ ['quiz','Practice','예상문제'],
+];
+
+/* ---------- OVERVIEW ---------- */
+const OVERVIEW=`<div class="col">
+<h2 class="rt">Ethical and Professional Standards</h2>
+<p class="rsub">윤리 및 직업기준 · Level I 비중 약 15–20% (Standards of Practice Handbook + GIPS)</p>
+${plain(`이 과목은 <b>“투자 전문가가 어떻게 행동해야 하는가”</b>에 대한 규칙집입니다. 계산 문제는 없고, 짧은 사례(누가 무엇을 했다)를 주고 <b>“위반인가? 어느 Standard 위반인가? 가장 적절한 행동은?”</b>을 묻습니다. 그래서 규칙의 <b>영어 표현</b>과 <b>판단 기준</b>을 정확히 아는 것이 핵심입니다.`)}
+<h3>Reading 구성 · 무엇을 배우나</h3>
+${table(['Reading','Title','한 줄 요약'],[
+ ['R89','Ethics and Trust in the Investment Profession','윤리란 무엇이고, 투자업에서 왜 특히 중요한가'],
+ ['R90','Code of Ethics and Standards of Professional Conduct','CFA 윤리강령 6개 + 직업행위기준 7개 Standard(23개 세부항목), 징계 절차(PCP)'],
+ ['R91','Guidance for Standards I–VII','각 Standard의 해석, 위반 사례, 권고사항 — <b>시험의 대부분</b>'],
+ ['R92','Introduction to GIPS','성과보고 국제기준: 왜 만들었나, 누가 준수하나, 컴포지트, 검증'],
+ ['R93','Ethics Application','실제 사례에 Standards 적용하기'],
+])}
+<h3>7 Standards 한눈에 · “누구를 보호하는 규칙인가?”</h3>
+<p class="ko" style="margin-bottom:6px">카드를 누르면 R91 해당 Standard로 이동합니다.</p>
+<div class="map">${[
+ ['I','Professionalism','전문가 정신','나 자신 — 기본이 된 전문가'],
+ ['II','Integrity of Capital Markets','자본시장 무결성','시장 — 시장을 더럽히지 않기'],
+ ['III','Duties to Clients','고객에 대한 의무','고객 — 고객이 1순위'],
+ ['IV','Duties to Employers','고용주에 대한 의무','회사 — 회사에 해 끼치지 않기'],
+ ['V','Investment Analysis, Recommendations, and Actions','투자분석·추천·행위','업무의 질 — 분석·소통·기록'],
+ ['VI','Conflicts of Interest','이해상충','이해상충 — 숨기지 말고 공시'],
+ ['VII','Responsibilities as a CFA Institute Member or CFA Candidate','CFA 회원·응시자 책임','CFA 브랜드 — 시험·명칭 보호'],
+].map(m=>`<button class="mapc" style="--c:${cvar(m[0])}" data-jump="${m[0]}"><span class="num">Standard ${m[0]}</span><span class="nm">${m[1]}</span><span class="who">${m[2]} · ${m[3]}</span></button>`).join('')}</div>
+
+<h3>Professor's Note · 문제는 이렇게 나온다</h3>
+${li([
+ ['Know <b>what constitutes a violation</b>. You need not memorize the Standard number and letter, but know whether an action violates, for example, Professionalism rather than Duties to Employers or Duties to Clients.','번호·알파벳 암기는 필요 없지만, 어느 카테고리 위반인지는 구분해야 합니다.'],
+ ['Many Standards use terms open to interpretation — <b>“reasonable,” “adequate,” “token.”</b> Exam questions will make it clear whether conduct rose to the level of “reasonable.”','해석이 갈리는 용어가 많지만, 시험 문제는 충족/미충족이 분명하게 나옵니다.'],
+ ['No monetary value for a <b>token gift</b> is given. A business dinner is likely token; a week at a condominium in Aspen or Super Bowl tickets are likely not. Look for clues such as <b>“lavish”</b> and <b>“luxury.”</b>','token 선물 금액 기준은 없습니다. 문제 속 “호화로운” 같은 힌트 단어를 찾으세요.'],
+ ['A question may offer a <b>“reason”</b> that might make one believe a Standard does not apply. In most cases the reason does not change the requirement. <b>If the Standard says it is a violation, it is a violation.</b>','그럴듯한 이유를 붙여도 금지 행위면 위반입니다.'],
+ ['Exception: when <b>intent</b> is key to the Standard — e.g., <b>intending to mislead</b> clients or market participants (II(B)), <b>knowingly</b> misrepresenting (I(C)).','예외: 의도·인지가 요건인 Standard는 의도를 따져야 합니다.'],
+ ['Some actions may violate <b>more than one Standard</b>.','한 행위가 여러 Standard를 동시에 위반할 수 있습니다.'],
+])}
+<h3>문제 풀이 3단계</h3>
+<div class="flow">
+ <div class="step"><span class="n">STEP 1</span><b>Who is harmed?</b><span class="ko">누가 피해를 보나 → 시장 II / 고객 III / 회사 IV / CFA VII</span></div>
+ <div class="step"><span class="n">STEP 2</span><b>Ignore the excuse</b><span class="ko">핑계는 무시. 단, II(B) 의도·I(C) 인지는 확인</span></div>
+ <div class="step"><span class="n">STEP 3</span><b>Most appropriate action?</b><span class="ko">정답 후보: disclose / written consent / dissociate / decline in writing</span></div>
+</div>
+</div>`;
+
+/* ---------- R89 ---------- */
+const R89=`<div class="col">
+<h2 class="rt">R89 · Ethics and Trust in the Investment Profession</h2>
+<p class="rsub">윤리의 개념과 투자업에서 신뢰가 중요한 이유 · LOS 89.a–h</p>
+
+<h3><span class="los">89.a</span>Explain ethics · 윤리란</h3>
+${li([
+ ['<b>Ethics</b>: a set of <b>shared beliefs</b> about what is good or acceptable behavior and what is bad or unacceptable behavior.','윤리 = 무엇이 좋은(수용 가능한) 행동이고 무엇이 나쁜 행동인지에 대해 사람들이 공유하는 믿음.'],
+ ['<b>Ethical conduct</b>: behavior that follows <b>moral principles</b> and is consistent with <b>society\'s ethical expectations</b>.','윤리적 행동 = 도덕 원칙을 따르고 사회의 기대에 맞는 행동.'],
+ ['Also described as conduct that <b>improves outcomes for stakeholders</b> — people <b>directly or indirectly affected</b> by the conduct (clients, coworkers, employers, the investment profession as a whole).','이해관계자(그 행동으로 직·간접 영향을 받는 사람)에게 더 나은 결과를 주는 행동이라고도 정의합니다.'],
+ ['Ethical conduct is behavior that <b>balances your self-interest with the impact on others</b>.','내 이익을 챙기되, 그 대가를 남에게 떠넘기지 않는 것.'],
+])}
+${plain('보너스 때문에 수수료 높은 상품을 고객에게 권하면 <b>나는 이익, 고객은 손해</b> → 균형이 깨진 비윤리적 행동입니다. 고객에게 맞는 상품을 권하고 정당한 수수료를 받으면 <b>둘 다 OK</b> → 균형 잡힌 윤리적 행동입니다.')}
+
+<h3><span class="los">89.b</span>Role of a code of ethics · 윤리강령의 역할</h3>
+${li([
+ ['A <b>code of ethics</b> is a <b>written set of moral principles</b> that can guide behavior by describing what is considered acceptable behavior.','윤리강령 = 수용 가능한 행동을 글로 정리한 도덕 원칙.'],
+ ['It communicates the <b>values, principles, and expectations</b> of an organization. Some codes include rules or standards that require some <b>minimum level</b> of ethical behavior.','조직의 가치·기대를 전달하고, 일부는 “최소한 이 정도는 지켜라”는 기준을 담습니다.'],
+ ['A <b>profession</b> = a group with specialized skills and knowledge who serve others and agree to behave in accordance with a code of ethics.','전문직 = 전문 지식으로 남을 돕고, 윤리강령을 지키기로 약속한 집단.'],
+ ['A professional code communicates to the public that members will serve clients in an <b>honest and ethical manner</b> → it can <b>increase public trust</b>.','대중에게 “우리는 정직하게 일한다”고 알려 신뢰를 높입니다.'],
+])}
+${trap([
+ ['Professional standards of practice specify a <b>minimum level of acceptable conduct</b>; “best practices” are suggested behavior, not a minimum.','직업기준 = 최소 수준. best practice(모범 관행)와 구분.'],
+ ['A code of conduct <b>can increase public trust</b>, but it is <b>no guarantee</b> that all members will follow it.','신뢰 증가 O / 모두가 지킨다는 보장 X.'],
+])}
+
+<h3><span class="los">89.c</span>Professions and how they establish trust · 전문직과 신뢰</h3>
+${bi('A <b>profession</b> is an occupational group (e.g., doctors or lawyers) that has requirements of <b>specialized expert knowledge</b>, and often a focus on ethical behavior and service to the larger community or society.','의사·변호사처럼 전문 지식이 필요하고, 윤리와 사회봉사를 중시하는 직업 집단.')}
+${table(['Characteristics of a profession · 특징','Ways professions establish trust · 신뢰 구축 방법'],[
+ [['A code and standards for professional behavior','직업행동 강령·기준'],['Requiring high standards of expertise, knowledge, and skill','높은 전문성 요구']],
+ [['A regulatory body to enforce rules and monitor members','규칙 집행·감독 기관'],['Establishing standards of ethical behavior','윤리 기준 수립']],
+ [['A focus on the needs of clients','고객 니즈 중시'],['Monitoring professional conduct','직업행위 감시']],
+ [['A focus on service to society','사회봉사'],['Encouraging continuing education','계속교육 장려']],
+ [['A requirement to put client interests first','고객 이익 우선'],['Being focused on clients\' needs','고객 니즈 집중']],
+ [['A focus on or requirement for continuing education','계속교육'],['Mentoring and inspiring others in the profession','후배 멘토링·영감']],
+])}
+
+<h3><span class="los">89.d</span>Need for high ethical standards · 왜 투자업은 더 높은 윤리가 필요한가</h3>
+${li([
+ ['Investment professionals are <b>entrusted with their clients\' wealth</b>.','남의 돈을 맡아서 관리하기 때문입니다.'],
+ ['Investment advice and management are <b>intangible products</b>, making quality and value <b>more difficult to evaluate</b> than tangible products (a laptop, a restaurant meal) → trust takes on <b>even greater importance</b>.','투자 서비스는 눈에 보이지 않는 무형 상품이라 품질 확인이 어려움 → 신뢰가 더 중요.'],
+ ['Failure to act ethically damages client wealth <b>and</b> impedes the success of investment firms (potential investors will be less likely to use their services).','고객도 손해, 회사도 고객을 잃음.'],
+ ['<b>Society as a whole</b>: the financial industry is an <b>intermediary</b> between savers and those seeking financing. Lack of trust → fewer funds entrusted and <b>higher cost of raising capital</b>.','금융은 저축자와 기업을 잇는 중개자 → 신뢰가 없으면 자금조달 비용 상승.'],
+ ['Unreliable information adds <b>another layer of risk</b> → reduces amounts invested and <b>increases required returns</b>.','정보를 못 믿으면 위험이 하나 더 생겨 투자 감소·요구수익률 상승.'],
+ ['Incomplete, misleading, or false information → <b>misallocation of capital</b> → lower economic growth and well-being.','엉뚱한 곳으로 자본이 흘러가 경제 전체가 손해.'],
+])}
+
+<h3><span class="los">89.e</span>Professionalism in investment management · 투자운용의 전문성</h3>
+${bi('Clients often do not have significant knowledge about <b>financial securities, fee structures, or sources of potential bias</b> in investment recommendations — so ethical principles are of great importance.','고객은 상품·수수료·추천 뒤의 이해관계를 잘 모름(정보 비대칭) → 전문가 윤리에 의존할 수밖에 없음.')}
+${table(['','Suitability standard · 적합성','Fiduciary standard · 수탁자'],[
+ ['Meaning',['The <b>match</b> between client return requirements and risk tolerances and the characteristics of the securities recommended','고객 목표·위험성향과 상품이 맞는가'],['Use knowledge and expertise to act in the <b>best interests of the client</b>','고객에게 최선인가']],
+ ['Question','“Is it suitable?” · 맞기만 하면 OK','“Is it the best for the client?” · 최선이어야 함'],
+ ['Strength','Weaker','<b>Stronger</b>'],
+])}
+${plain('같은 전략의 펀드가 A(수수료 2%, 회사에 판매보수 많음)와 B(수수료 0.3%)로 있을 때, <b>Suitability</b> 기준으로는 A도 고객에게 “적합”하므로 문제 없음. <b>Fiduciary</b> 기준으로는 더 싼 B가 있으니 A는 최선이 아님 → 문제.')}
+
+<h3><span class="los">89.f</span>Challenges to ethical behavior · 윤리적 행동을 방해하는 것</h3>
+${li([
+ ['Individuals tend to <b>overrate the ethical quality of their own behavior</b> and overemphasize their personal traits.','사람은 자기가 꽤 윤리적이라고 과대평가합니다.'],
+ ['<b>Situational influences</b> (external) are claimed to be a more important determinant of ethical behavior than internal (personal) traits:','외부 상황이 개인 성품보다 더 큰 영향을 줍니다:',[
+  ['<b>Social pressure</b> from others','주변의 압력'],
+  ['<b>Loyalty</b> to an employer, supervisor, organization, or coworkers → more importance on self-interest and <b>short-term results</b>','회사·상사에 대한 충성심 → 단기 성과 집착'],
+  ['The prospect of acquiring <b>more money or greater prestige</b>','돈·명예 욕심'],
+ ]],
+ ['Considering only <b>near-term consequences</b>, not longer-term consequences.','단기 결과만 봄.'],
+ ['Strict <b>rules-based compliance</b> culture → individuals only ask what they <b>can</b> do, not what they <b>should</b> do.','규칙만 따지는 문화 → “해도 되나?”만 묻고 “해야 하나?”는 안 물음.'],
+])}
+${trap([['Situational factors are <b>least likely</b> to include “<b>a lack of ethical principles</b>” — that is an internal, personal factor.','“윤리원칙 결여”는 상황적(외부) 요인이 아니라 개인적(내부) 요인.']])}
+
+<h3><span class="los">89.g</span>Ethical standards vs. legal standards · 윤리 vs 법</h3>
+${quote('Not all unethical actions are illegal, and not all illegal actions are unethical.','비윤리적이라고 다 불법은 아니고, 불법이라고 다 비윤리적인 것도 아니다.')}
+${table(['Case','Example · 예시'],[
+ [['Illegal but ethical','불법이지만 윤리적'],['<b>Whistle-blowing</b> (reporting employer\'s actions against clients, may breach private company information rules); <b>civil disobedience</b>','내부고발, 시민 불복종(평화적으로 부당한 법을 어기는 것)']],
+ [['Legal but unethical','합법이지만 비윤리적'],['Recommending investment in a <b>relative\'s firm without disclosure</b>','공시 없이 친척 회사 추천']],
+])}
+${li([
+ ['Ethical principles often set a <b>higher standard</b> than laws and regulations.','윤리가 법보다 높은 기준.'],
+ ['New laws often <b>result from recent instances of unethical behavior</b> (laws are reactive and more specific) and can create opportunities for different unethical behavior.','법은 사고가 난 뒤 만들어지고(사후적), 새 법은 또 다른 빈틈을 만듦. 1933·1934 증권법, SOX, Dodd-Frank 등 이름은 암기 불필요.'],
+ ['Ethical decisions require <b>more judgment</b> and consideration of the impact on many stakeholders compared to legal decisions.','윤리적 판단은 더 많은 판단력이 필요.'],
+])}
+
+<h3><span class="los">89.h</span>Framework for ethical decision making · 윤리적 의사결정 프레임워크</h3>
+${bi('To integrate ethics into decision-making, a firm must first <b>adopt a code of ethics</b>. <b>Support of senior management</b> is very important in developing an ethical culture.','먼저 윤리강령 채택, 그리고 경영진의 지원이 윤리 문화의 핵심.')}
+<div class="flow">
+ <div class="step"><span class="n">1 · IDENTIFY</span><b>식별</b><span class="en">Relevant facts, stakeholders and duties owed, ethical principles, conflicts of interest</span></div>
+ <div class="step"><span class="n">2 · CONSIDER</span><b>고려</b><span class="en">Situational influences, additional guidance (mentors, colleagues, legal/compliance), alternative actions</span></div>
+ <div class="step"><span class="n">3 · DECIDE & ACT</span><b>결정·실행</b><span class="en">Decide and act</span></div>
+ <div class="step"><span class="n">4 · REFLECT</span><b>성찰</b><span class="en">Was the outcome as anticipated? Why or why not?</span></div>
+</div>
+${trap([
+ ['“Seeking additional guidance” belongs to the <b>Consider</b> phase; “identifying conflicts of interest” belongs to <b>Identify</b>.','조언 구하기 = Consider 단계 / 이해상충 파악 = Identify 단계.'],
+ ['Using a framework is most likely to <b>balance the interests of various stakeholders</b> — not guarantee higher profits, and it can never assure avoiding <b>all</b> unintended consequences.','프레임워크의 효과 = 이해관계자 이익의 균형. “이익 증가”, “모든 부작용 회피”는 오답.'],
+])}
+</div>`;
+
+/* ---------- R90 ---------- */
+const R90=`<div class="col">
+<h2 class="rt">R90 · Code of Ethics and Standards of Professional Conduct</h2>
+<p class="rsub">징계 절차(PCP), Code of Ethics 6개, Standards 7개 · LOS 90.a–c</p>
+
+<h3><span class="los">90.a</span>Professional Conduct Program (PCP) · 징계 프로그램</h3>
+${li([
+ ['Covered by the <b>CFA Institute Bylaws</b> and the <b>Rules of Procedure for Proceedings Related to Professional Conduct</b>.','근거 규정.'],
+ ['Based on the principles of <b>fairness</b> of the process and <b>confidentiality</b> of the proceedings.','공정성 + 비밀 유지가 원칙.'],
+])}
+${table(['Who','Role · 역할'],[
+ [['<b>Board of Governors</b>','이사회'],['<b>Overall responsibility</b> for the PCP','PCP 전반에 대한 최종 책임(oversight)']],
+ [['<b>Disciplinary Review Committee (DRC)</b>','징계심사위원회'],['Responsible for <b>enforcement</b> of the Code and Standards','Code·Standards 집행']],
+ [['<b>Professional Conduct staff</b>','직업행위 담당 직원'],['Conducts <b>inquiries</b>','조사 수행']],
+])}
+<h4>Circumstances that can prompt an inquiry · 조사가 시작되는 5가지 경우</h4>
+${li([
+ ['<b>Self-disclosure</b> on the annual <b>Professional Conduct Statement (PCS)</b> (civil litigation, criminal investigation, or written complaint)','매년 제출하는 PCS에 스스로 신고'],
+ ['<b>Written complaints</b> received by the Professional Conduct staff','서면 고발'],
+ ['Evidence of misconduct from <b>public sources</b> (media article or broadcast)','언론 보도 등'],
+ ['A report by a <b>CFA exam proctor</b>','시험 감독관 보고'],
+ ['<b>Analysis of exam materials and monitoring of social media</b> by CFA Institute','시험자료 분석·SNS 모니터링'],
+])}
+<h4>Process · 진행 순서</h4>
+<div class="flow">
+ <div class="step"><span class="n">1</span><b>Inquiry</b><span class="ko">서면 설명 요청 + 당사자/고발인·제3자 인터뷰 + 문서 수집</span></div>
+ <div class="step"><span class="n">2</span><b>Staff decides</b><span class="ko">① no sanctions ② cautionary letter(경고장) ③ discipline(징계)</span></div>
+ <div class="step"><span class="n">3</span><b>Accept or reject</b><span class="ko">징계 제안 시 당사자가 수락 또는 거부</span></div>
+ <div class="step"><span class="n">4</span><b>Hearing</b><span class="ko">거부하면 disciplinary review panel(회원으로 구성)이 청문</span></div>
+</div>
+${bi('Sanctions may include <b>condemnation by the member\'s peers</b> or <b>suspension of the candidate\'s continued participation</b> in the CFA Program.','제재 예: 동료의 공개 견책, 응시 자격 정지.')}
+${trap([['Staff are <b>least likely</b> to <b>suspend the member\'s right to use the CFA designation while an investigation is in progress</b> — that is not part of the process.','조사 중에 CFA 명칭 사용을 정지시키는 절차는 없음.']])}
+
+<h3><span class="los">90.b</span>Code of Ethics · 윤리강령 (6 components)</h3>
+<p class="ko">Members and Candidates must:</p>
+${table(['#','Code of Ethics','핵심'],[
+ ['1','Act with <b>integrity, competence, diligence, respect</b> and in an ethical manner with the public, clients, prospective clients, employers, employees, colleagues, and other participants in the global capital markets.','성실·역량·근면·존중'],
+ ['2','Place the <b>integrity of the investment profession</b> and the <b>interests of clients above their own personal interests</b>.','업계·고객 > 나'],
+ ['3','Use <b>reasonable care</b> and exercise <b>independent professional judgment</b> when conducting investment analysis, making recommendations, taking actions, and engaging in other professional activities.','합리적 주의 + 독립적 판단'],
+ ['4','<b>Practice and encourage others to practice</b> in a professional and ethical manner that will reflect credit on themselves and the profession.','스스로 실천 + 남에게 권장'],
+ ['5','<b>Promote the integrity and viability of the global capital markets</b> for the ultimate benefit of society.','자본시장 무결성 증진'],
+ ['6','<b>Maintain and improve their professional competence</b> and strive to maintain and improve the competence of other investment professionals.','나와 남의 역량 향상'],
+])}
+${trap([['“Do not act on MNPI,” “distinguish between fact and opinion,” “disclose referral fees” are in the <b>Standards</b>, not in the six components of the <b>Code</b>.','MNPI 금지, 사실/의견 구분, 소개수수료 공시는 Code가 아니라 Standards 내용.']])}
+
+<h3><span class="los">90.b–c</span>Standards of Professional Conduct · 7 Standards, 23 subsections</h3>
+${table(['Standard','Subsections'],[
+ ['<b style="color:var(--g1)">I. Professionalism</b>','A. Knowledge of the Law · B. Independence and Objectivity · C. Misrepresentation · D. Misconduct · E. Competence'],
+ ['<b style="color:var(--g2)">II. Integrity of Capital Markets</b>','A. Material Nonpublic Information · B. Market Manipulation'],
+ ['<b style="color:var(--g3)">III. Duties to Clients</b>','A. Loyalty, Prudence, and Care · B. Fair Dealing · C. Suitability · D. Performance Presentation · E. Preservation of Confidentiality'],
+ ['<b style="color:var(--g4)">IV. Duties to Employers</b>','A. Loyalty · B. Additional Compensation Arrangements · C. Responsibilities of Supervisors'],
+ ['<b style="color:var(--g5)">V. Investment Analysis, Recommendations, and Actions</b>','A. Diligence and Reasonable Basis · B. Communication with Clients and Prospective Clients · C. Record Retention'],
+ ['<b style="color:var(--g6)">VI. Conflicts of Interest</b>','A. Avoid or Disclose Conflicts · B. Priority of Transactions · C. Referral Fees'],
+ ['<b style="color:var(--g7)">VII. Responsibilities as a CFA Institute Member or CFA Candidate</b>','A. Conduct as Participants in CFA Institute Programs · B. Reference to CFA Institute, the CFA Designation, and the CFA Program'],
+])}
+<p class="ko">5 + 2 + 5 + 3 + 3 + 3 + 2 = 23. 각 조문 해설은 R91 탭에 있습니다. 예: 고객이 제안한 추가 보상 약정 → <b>IV. Duties to Employers</b>(IV(B)).</p>
+</div>`;
+
+/* ---------- R91 DATA ---------- */
+const STD=[
+{g:'I',code:'I(A)',name:'Knowledge of the Law',ko:'법규 숙지',
+ text:'Members and Candidates must understand and comply with all applicable laws, rules, and regulations (including the CFA Institute Code of Ethics and Standards of Professional Conduct) of any government, regulatory organization, licensing agency, or professional association governing their professional activities. In the event of conflict, Members and Candidates must comply with the <b>more strict</b> law, rule, or regulation. Members and Candidates must not knowingly participate or assist in and must <b>dissociate</b> from any violation of such laws, rules, or regulations.',
+ textko:'적용되는 모든 법규(CFA Code·Standards 포함)를 지키고, 충돌하면 더 엄격한 것을 따른다. 위반에 알면서 가담하지 말고, 위반으로부터 분리해야 한다.',
+ plain:'규칙이 여러 개면 <b>가장 엄격한 것</b>을 지키면 됩니다. 한국 법이 느슨하고 CFA Standards가 엄격하면 CFA를, 한국 법이 더 엄격하면 한국 법을 따릅니다. 동료의 불법을 보면 <b>보고 → 안 고쳐지면 손 떼기(dissociate) → 최악엔 퇴사</b>.',
+ pts:[
+  ['The Code and Standards are included → <b>any violation of the Code and Standards also violates I(A)</b>.','Code 위반 = 자동으로 I(A) 위반.'],
+  ['A member may be governed by the Standards, the country of residence, and the country of business — <b>follow the most strict</b> (do not violate any of the three).','세 가지 규칙 중 가장 엄격한 것.'],
+  ['If you know of violations by coworkers or clients: approach your <b>supervisor or compliance department</b>; if they will not or cannot remedy it, <b>dissociate</b> from the activity (e.g., stop working with a trading group that misallocates trades; stop using misleading marketing materials). In an extreme case, <b>resign</b>.','보고 → 분리 → 퇴사 순서.'],
+  ['Members are <b>“strongly encouraged”</b> to report potential violations to the CFA Institute PCP — <b>no requirement</b> in the Standards (local law may require it).','CFA에 신고는 권장일 뿐 의무 아님.'],
+ ],
+ recM:[['Keep informed of changes in laws; review written compliance procedures regularly; maintain copies of current laws','법규 변경 파악, 절차 검토, 법규 사본 유지'],['When in doubt about legality, consult your <b>supervisor, compliance personnel, or a lawyer</b>','애매하면 상사·컴플라이언스·변호사와 상의'],['When dissociating, <b>keep records documenting the violations</b>; encourage employer to bring an end to them','분리할 때 기록을 남길 것']],
+ recF:[['Have a code of ethics','윤리강령 보유'],['Provide employees with information on laws, rules, and regulations','법규 정보 제공'],['Have procedures for reporting suspected violations','위반 신고 절차']],
+ trap:[['Must the member report the colleague to CFA Institute and regulators? → <b>No requirement</b> under the Standards; required action is to <b>dissociate</b> and urge the firm to stop it.','CFA·당국 신고는 의무 아님. 분리하고 회사에 중단 촉구가 의무.'],['Refusing to sign but asking your supervisor to sign in your place still assists the violation.','본인 대신 남에게 서명하게 하는 것도 위반 조력.']]},
+
+{g:'I',code:'I(B)',name:'Independence and Objectivity',ko:'독립성과 객관성',
+ text:'Members and Candidates must use reasonable care and judgment to achieve and maintain independence and objectivity in their professional activities. Members and Candidates must not <b>offer, solicit, or accept</b> any gift, benefit, compensation, or consideration that reasonably could be expected to compromise their own or another\'s independence and objectivity.',
+ textko:'독립성·객관성을 유지해야 하며, 자신이나 남의 판단을 흐릴 만한 선물·혜택을 주거나, 요구하거나, 받으면 안 된다.',
+ plain:'<b>판단을 돈으로 사거나 팔지 마라.</b> 커버하는 회사가 하와이 여행을 보내주면 위반, 업무상 평범한 저녁식사는 OK. 주는 것(offer)도 받는 것(accept)도 요구하는 것(solicit)도 모두 해당됩니다.',
+ pts:[
+  ['Pressure or inducements to give a specific rating, select certain managers or vendors, or produce favorable or unfavorable research → letting them influence you is a violation.','특정 등급·벤더 선정 압력에 굴복하면 위반.'],
+  ['<b>Allocating shares in oversubscribed IPOs to personal accounts</b> is a violation.','인기 IPO를 내 계좌에 넣으면 위반.'],
+  ['<b>Normal business entertainment is permitted.</b>','통상적인 접대는 허용.'],
+  ['<b>Gifts from clients</b> are considered less likely to compromise independence than gifts from other parties. Client gifts must be <b>disclosed to the member\'s employer prior to acceptance, if possible, but after acceptance, if not</b>.','고객 선물은 받아도 되지만 고용주에 공시(가능하면 사전, 아니면 사후).'],
+  ['<b>Issuer-paid research</b> is permitted if compensation is a <b>flat rate not tied to the conclusions</b> of the report <b>and</b> the fact that it is issuer-paid is <b>disclosed</b>. Compensation dependent on conclusions or market impact, or failure to disclose → violation.','발행사가 돈 낸 리서치: 정액 + 공시면 OK.'],
+ ],
+ recM:[['Pay for your own <b>travel</b> to company events or tours when practicable; limit use of <b>corporate aircraft</b> to trips for which commercial travel is not an alternative','가능하면 여행 경비는 직접 부담, 기업 전용기는 상업 항공편이 없을 때만']],
+ recF:[['Restrict employee participation in <b>IPOs and private placements</b>; require <b>pre-approval</b>','IPO·사모 참여 제한, 사전승인'],['Appoint a compliance officer; written policies on independence; clear procedures for reporting violations','컴플라이언스 오피서·서면 정책'],['<b>Limit gifts, other than from clients, to token items only</b>','고객 외 선물은 token만']],
+ trap:[['Remote site, commercial travel effectively unavailable → accepting the company\'s charter flight is <b>not a violation</b>.','상업 항공편이 없으면 회사 전세기 이용 OK.'],['Gift from a client for <b>past</b> performance → I(B), <b>disclose</b>. Bonus for <b>future</b> performance → IV(B), <b>written consent</b>.','과거 성과 선물=I(B) 공시 / 미래 성과 보너스=IV(B) 서면동의.'],['Do not treat <b>credit ratings</b> as automatically objective.','신용등급도 무조건 믿으면 안 됨.']]},
+
+{g:'I',code:'I(C)',name:'Misrepresentation',ko:'허위표시',
+ text:'Members and Candidates must not <b>knowingly</b> make any misrepresentations relating to investment analysis, recommendations, actions, or other professional activities.',
+ textko:'투자분석·추천·직업활동에 대해 알면서 거짓을 말하거나 오해하게 만들면 안 된다.',
+ plain:'거짓말 금지 + <b>말해야 할 걸 빼먹는 것(omission)도 거짓말</b> + <b>남의 것을 내 것처럼(plagiarism)</b>도 금지. 단, 정부·공인 통계기관의 단순 데이터는 출처 표시 안 해도 됩니다.',
+ pts:[
+  ['Includes knowingly misleading investors, <b>omitting relevant information</b>, presenting <b>selective data</b> to mislead, and <b>plagiarism</b>.','오도, 누락, 선택적 데이터, 표절.'],
+  ['<b>Plagiarism</b> = using reports, forecasts, models, ideas, charts, graphs, or spreadsheets created by others <b>without crediting the source</b>.','출처 없이 남의 자료 사용.'],
+  ['Crediting the source is <b>not required</b> for projections, statistics, and tables from <b>recognized financial and statistical reporting services</b>.','공인 통계 서비스 자료는 출처 불필요.'],
+  ['Models/research by other members of <b>the same firm</b>: you may omit names of those <b>no longer with the firm</b>, as long as you do not represent the work as yours alone.','퇴사한 같은 회사 동료 이름은 생략 가능.'],
+ ],
+ viol:[['Presenting third-party research as your own','남의 리서치를 내 것처럼'],['<b>Guaranteeing a specific return</b> on securities with no explicit guarantee from a government body or financial institution','보증 없는 증권의 수익 보장'],['Selecting a valuation service because it gives the <b>highest value</b> to untraded holdings','가장 높은 평가 서비스 선택'],['Selecting a <b>benchmark not comparable</b> to the strategy','비교 불가능한 벤치마크'],['Performance data that <b>omits accounts or relevant variables</b>','계좌·변수 누락'],['False information about the firm\'s <b>capabilities, expertise, or experience</b>','역량 허위'],['Using <b>misleading third-party marketing materials</b>','오도하는 외부 마케팅 자료']],
+ okk:[['Stating that a U.S. bank CD is guaranteed up to FDIC limits (an actual guarantee exists)','실제 보증이 있는 상품을 보증된다고 말하는 것'],['Using a Treasury yield table without citation','재무부 통계 표 무인용 사용']],
+ recM:[['Prepare a summary of your experience, qualifications, and services','경력·자격 요약서'],['Cite the source of summaries of others\' materials; <b>keep copies</b> of materials used in preparing research','출처 인용, 사용 자료 사본 보관'],['Encourage employers to verify third-party marketing materials; periodically review communications for misrepresentation','외부 자료 검증, 정기 검토']],
+ trap:[['Key person leaves during a pending proposal → must <b>inform the prospect</b> (misrepresentation by omission).','제안 심사 중 핵심 인력 퇴사 → 즉시 알려야 함.'],['Turning management\'s <b>optimism</b> into <b>certainty</b> in a report is misrepresentation.','경영진의 낙관을 확정적 사실처럼 쓰면 위반.']]},
+
+{g:'I',code:'I(D)',name:'Misconduct',ko:'부정행위',
+ text:'Members and Candidates must not engage in any professional conduct involving <b>dishonesty, fraud, or deceit</b> or commit any act that reflects adversely on their professional <b>reputation, integrity, or competence</b>.',
+ textko:'부정직·사기·기만이 있는 직업적 행위를 하거나, 직업적 평판·무결성·역량에 나쁘게 반영되는 행위를 하면 안 된다.',
+ plain:'업무 중 사기·기만은 당연히 금지. 사생활이라도 <b>“이 사람 못 믿겠다”</b>는 인상을 주는 행위(절도, 경비 부풀리기)는 위반. 하지만 평화 시위로 체포된 것처럼 <b>정직성과 무관</b>하면 반드시 위반은 아닙니다.',
+ pts:[
+  ['The second part applies to <b>all conduct</b> (including personal), but only if it <b>reflects adversely on professional reputation, integrity, or competence</b>.','사생활도 포함, 단 직업적 신뢰를 깎을 때만.'],
+  ['Must not use this Standard to settle <b>personal, political, or other disputes</b> unrelated to professional ethics.','개인적·정치적 싸움에 이용 금지.'],
+  ['<b>Neglecting to perform due diligence</b> when required is misconduct.','해야 할 실사를 안 하면 부정행위.'],
+  ['Acts outside professional capacity that reflect poorly on honesty (<b>theft, fraud</b>) → violation. Illegal acts that do not (e.g., <b>civil disobedience</b>) → not necessarily.','절도·사기 위반 / 시민 불복종은 반드시 위반 아님.'],
+ ],
+ recF:[['Develop and adopt a code of ethics; make clear unethical behavior will not be tolerated','윤리강령, 무관용'],['Give employees a list of potential violations and sanctions, including dismissal','위반·제재 목록'],['<b>Check references</b> of potential employees','채용 시 평판 조회']],
+ trap:[['Padding an expense report — even if later disclosed and repaid — is <b>misconduct</b> (dishonesty).','경비 부풀리기는 나중에 반납해도 부정행위.'],['“Any illegal act is misconduct” → <b>false</b>.','“모든 불법행위 = 부정행위”는 오답.']]},
+
+{g:'I',code:'I(E)',name:'Competence',ko:'역량',
+ text:'Members and Candidates must act with and maintain the competence necessary to fulfill their professional responsibilities.',
+ textko:'직업적 책임을 다하는 데 필요한 역량을 갖추고 유지해야 한다.',
+ plain:'맡은 일을 할 실력을 갖춰라. 새 업무를 맡으면 <b>스스로 공부해서</b> 역량을 갖춰야 합니다. 계속교육은 <b>권장(recommend)</b>이지 의무가 아닙니다.',
+ pts:[
+  ['Competence = having and maintaining the abilities, skills, and knowledge needed for one\'s professional responsibilities.','필요한 능력·지식 보유와 유지.'],
+  ['<b>Negative outcomes do not necessarily imply a lack of competence.</b>','결과가 나쁘다고 역량 부족은 아님.'],
+  ['When accepting a new or unfamiliar role, it is the member\'s responsibility to <b>develop the required abilities</b>.','새 역할엔 스스로 역량 개발.'],
+  ['The Standard <b>recommends, but does not require</b>, continuing education.','계속교육은 권장.'],
+ ],
+ recM:[['Continuing education, professional designations, seminars, professional organizations, informal self-study','계속교육, 자격, 세미나, 단체, 자율학습']],
+ trap:[['Accepting a supervisory role without taking steps to gain competence as a supervisor → violation (R93).','감독 역할을 맡고 준비를 안 함 → 위반.']]},
+
+{g:'II',code:'II(A)',name:'Material Nonpublic Information',ko:'중요 미공개정보 (MNPI)',
+ text:'Members and Candidates who possess material nonpublic information that could affect the value of an investment must not <b>act or cause others to act</b> on the information.',
+ textko:'투자 가치에 영향을 줄 수 있는 중요 미공개정보를 가지고 있으면, 그 정보로 거래하거나 남이 거래하게 해서는 안 된다.',
+ plain:'<b>“아직 아무도 모르는데 주가를 움직일 정보”</b>로는 거래 금지. 친구에게 알려줘서 거래하게 하는 것도 금지. 단, 공개정보와 사소한 정보를 모아 스스로 결론을 내는 <b>모자이크 이론(mosaic theory)</b>은 애널리스트의 정상 업무라 OK.',
+ pts:[
+  ['<b>Material</b>: disclosure would <b>affect the price</b> of a security, or a <b>reasonable investor would want</b> the information before making an investment decision. <b>Ambiguous</b> information may not be material.','중요성: 주가에 영향 or 합리적 투자자가 알고 싶어 할 정보. 모호하면 중요하지 않을 수 있음.'],
+  ['<b>Nonpublic</b>: until it has been <b>made available to the marketplace</b>. An <b>analyst conference call is not public disclosure</b>. <b>Selective disclosure</b> creates the potential for insider-trading violations.','미공개: 시장 전체에 공개 전. 애널리스트 콜·일부에게만 공개 = 미공개.'],
+  ['Extends to <b>mutual funds</b> containing the securities and related <b>swaps and options</b>. The member is responsible for determining whether information has been publicly disseminated.','관련 펀드·파생상품도 포함.'],
+  ['MNPI received in investment banking transactions may be used only for its <b>intended purpose</b> until public.','IB 업무로 받은 정보는 원래 목적으로만.'],
+  ['<b>Mosaic theory</b>: reaching a conclusion through perceptive analysis of <b>public information + non-material nonpublic information</b> is <b>not a violation</b>.','공개정보 + 비중요 미공개정보 = OK.'],
+ ],
+ recM:[['Make reasonable efforts to achieve <b>public dissemination</b> of the information','공개되도록 노력'],['Encourage firms to adopt procedures to prevent misuse of MNPI','오용 방지 절차 권장']],
+ recF:[['Use a <b>firewall</b>: control interdepartmental communications through a <b>clearance area</b> (compliance or legal); <b>review employee trades</b>; maintain <b>“watch,” “restricted,” and “rumor” lists</b>','정보차단벽: clearance area, 직원거래 검토, watch/restricted/rumor 리스트'],['Monitor and restrict <b>proprietary trading</b> while holding MNPI; prohibiting all proprietary trading may <b>send a signal</b> → only take the <b>opposite side of unsolicited customer trades</b>','자기매매 제한. 전면 금지는 시장에 신호를 주므로 비요청 고객주문의 반대편만']],
+ trap:[['Information shared in an <b>internet chat room</b> or overheard in an airport lounge is still nonpublic → may not trade <b>in any jurisdiction</b>.','채팅방·엿들은 정보도 미공개. 어떤 나라에서도 거래 불가.'],['Sharing a pre-release press release with an outside person (even for grammar checks) risks violating II(A).','공시 전 보도자료를 외부인(친척)에게 보내는 것도 위험.'],['Selective disclosure is <b>not</b> a way to prevent MNPI trading; firewalls and personal trading limits are.','선택적 공시는 방지책이 아니라 원인.']]},
+
+{g:'II',code:'II(B)',name:'Market Manipulation',ko:'시장조작',
+ text:'Members and Candidates must not engage in practices that distort prices or artificially inflate trading volume with the <b>intent to mislead</b> market participants.',
+ textko:'시장참가자를 오도할 의도로 가격을 왜곡하거나 거래량을 인위적으로 부풀리면 안 된다.',
+ plain:'핵심 단어는 <b>“의도(intent to mislead)”</b>. 대량 매매로 가격이 움직인 것만으로는 위반이 아닙니다. 하지만 <b>헛소문 퍼뜨리기</b>, <b>짜고 치는 매매로 거래량 부풀리기</b>는 위반.',
+ pts:[
+  ['Member actions may affect prices and volume without violating the Standard — the key is <b>intent to mislead</b>.','결과가 아니라 의도가 기준.'],
+  ['<b>Information-based</b>: spreading false information to affect prices or volume.','허위정보 유포.'],
+  ['<b>Transaction-based</b>: trades intended to mislead market participants (e.g., two affiliates simultaneously buying and selling to inflate volume).','오도 목적 거래.'],
+ ],
+ viol:[['Posting untrue negative claims online about a company you are short','공매도 후 악성 허위글'],['Listing fake shareholders to meet exchange listing requirements','상장 요건용 가짜 주주'],['Affiliates trading with each other to show “liquidity” in marketing','자회사끼리 매매로 유동성 과장']],
+ okk:[['Buying stock while shorting puts as an <b>arbitrage strategy</b> known to fund investors','투자자가 아는 차익거래 전략'],['A large legitimate trade that moves the price','정당한 대량거래로 가격 변동']],
+ trap:[['A post that hypes a stock you want to sell → violates II(B) <b>and</b> VI (conflict not disclosed).','팔고 싶은 주식을 띄우는 글 → II(B) + VI 동시 위반.']]},
+
+{g:'III',code:'III(A)',name:'Loyalty, Prudence, and Care',ko:'충실·신중·주의',
+ text:'Members and Candidates have a duty of loyalty to their clients and must act with reasonable care and exercise prudent judgment. Members and Candidates must act for the benefit of their clients and place their clients\' interests <b>before their employer\'s or their own interests</b>.',
+ textko:'고객에게 충실해야 하며 합리적 주의와 신중한 판단을 해야 한다. 고객 이익을 회사·자신의 이익보다 앞에 둔다.',
+ plain:'우선순위는 <b>고객 → 회사 → 나</b>. 고객 돈(soft dollars 포함)은 고객을 위해서만 쓰고, 연기금이라면 돈을 맡긴 회사가 아니라 <b>연금 받을 사람(beneficiaries)</b>에게 충실해야 합니다.',
+ pts:[
+  ['<b>Client interests always come first.</b> The Standard does <b>not impose a fiduciary duty</b> where one did not already exist, but requires acting in clients\' best interests.','고객 우선. 없던 수탁의무를 새로 만들진 않음.'],
+  ['Exercise the prudence, care, skill, and diligence that a person acting <b>in a like capacity</b> and familiar with such matters would use.','같은 일을 하는 전문가 수준의 신중함.'],
+  ['Manage pools of client assets per the <b>governing documents</b> (trust documents, IMAs); decisions in the context of the <b>total portfolio</b>.','신탁증서 등에 따라, 전체 포트폴리오 관점.'],
+  ['Inform clients of any <b>limitations</b> in the advisory relationship.','자문 관계의 제한 고지(예: 자사 상품만 추천 가능).'],
+  ['<b>Vote proxies</b> in an informed and responsible manner; due to cost-benefit, it <b>may not be necessary to vote all proxies</b>.','의결권은 책임 있게. 비용 대비 효과 없으면 생략 가능.'],
+  ['Client brokerage — <b>“soft dollars” / “soft commissions”</b> — is the client\'s asset and must be used to <b>benefit the client</b>.','소프트달러 = 고객 자산 → 고객을 위해서만.'],
+  ['The “client” may be the <b>investing public as a whole</b>. For a pension fund, loyalty is owed to the <b>beneficiaries</b>.','고객 = 투자대중일 수도. 연기금은 수익자.'],
+ ],
+ viol:[['Using soft dollars to pay the firm\'s <b>operating expenses</b> (rent, salaries)','소프트달러로 회사 운영비 지급'],['Investing more aggressively because the <b>plan sponsor</b> asks, against beneficiaries\' interest','스폰서 요청으로 수익자에 불리한 공격적 투자'],['Accepting <b>personal</b> benefits (discounted personal brokerage, special account privileges) from a broker used for client trades','고객 거래 브로커로부터 개인 혜택 수령'],['Client agreements excusing reps from acting in clients\' best interests — <b>no “opt out”</b>','계약서로 의무 면제 시도']],
+ okk:[['Soft dollars used for <b>research</b> that benefits clients','고객에게 도움되는 리서치'],['Not voting a proxy when costs exceed benefits (policy disclosed)','비용>효과면 의결권 미행사'],['Allowing the broker to cover a trading error <b>the broker made</b>, at no cost to the client','브로커 실수를 브로커가 부담']],
+ recM:[['Submit to clients, <b>at least quarterly</b>, itemized statements of all securities in custody and all debits, credits, and transactions','최소 분기 1회 명세서'],['Firm policies should cover: follow laws, establish objectives, consider suitability, <b>diversify</b>, deal fairly, <b>disclose conflicts</b>, <b>disclose compensation arrangements</b>, vote proxies in clients\' best interest, maintain confidentiality, <b>seek best execution</b>','분산, 상충·보상 공시, 최선 집행 등']],
+ trap:[['Offering a client “preferential access to a hot new issue” to make up for an error → violates <b>III(B) Fair Dealing</b> (other clients disadvantaged).','실수 보상으로 인기 공모주 우선 배정 → 공정대우 위반.']]},
+
+{g:'III',code:'III(B)',name:'Fair Dealing',ko:'공정대우',
+ text:'Members and Candidates must deal <b>fairly and objectively</b> with all clients when providing investment analysis, making investment recommendations, taking investment action, or engaging in other professional activities.',
+ textko:'투자분석·추천·투자행위에서 모든 고객을 공정하고 객관적으로 대해야 한다.',
+ plain:'모든 고객에게 <b>공평한 기회</b>를 줘라. 단 <b>“공정(fairly)” ≠ “똑같이(equally)”</b>. 돈 더 내는 VIP 서비스는 OK지만, 공시하고 원하는 누구나 이용 가능해야 하며 다른 고객에게 피해가 없어야 합니다. 추천을 바꾸면 <b>동시에</b> 알려야 합니다.',
+ pts:[
+  ['Do not discriminate against any clients when disseminating recommendations or taking action. <b>“Fairly” does not mean “equally.”</b>','차별 금지. 공정 ≠ 동일.'],
+  ['<b>Different service levels are acceptable</b> but must not disadvantage any client; <b>disclose</b> them to all clients and prospects, and make premium service <b>available to all willing to pay</b>.','서비스 차등 허용 조건 3가지.'],
+  ['Give all clients a <b>fair opportunity to act</b> on every recommendation. Clients unaware of a change should be advised <b>before an order is accepted</b>.','추천 변경을 모르는 고객 주문은 접수 전에 알려줌.'],
+  ['Treat individual and institutional clients fairly; don\'t take advantage of your position (e.g., <b>taking shares of an oversubscribed IPO</b>).','초과청약 IPO를 본인이 가져가지 않기.'],
+  ['<b>Family member accounts that are client accounts</b> are treated like any other client account — no advantage, no disadvantage.','가족 고객계좌 = 일반 고객과 동일.'],
+ ],
+ recM:[['Encourage compliance procedures for proper dissemination; <b>maintain a list of clients and their holdings</b>','고객·보유종목 목록']],
+ recF:[['<b>Limit the number of people</b> aware of a change in recommendation','아는 사람 최소화'],['<b>Shorten the time frame</b> between decision and dissemination','결정→전파 시간 단축'],['<b>Pre-dissemination guidelines</b>: those with prior knowledge may not discuss or act on it','사전 전파 금지 지침'],['Disseminate <b>simultaneously</b> to all clients who have expressed an interest or for whom the investment is suitable','관심·적합 고객에게 동시 전파'],['<b>Written trade allocation procedures</b> (fairness, timely execution, accuracy) and <b>disclose</b> them','서면 배분 절차 + 공시'],['<b>Systematic account review</b>; disclose available levels of service','체계적 계좌 검토']],
+ trap:[['Allocating an oversubscribed issue <b>pro rata including family-member client accounts</b> → OK. Excluding them or putting them last → not fair.','가족 고객계좌도 포함해 비례 배분 = 정답.'],['Firm trades for its own account <b>immediately after announcing</b> a change → violation.','발표 직후 자기매매 → 위반.'],['Block trade price allocation: <b>same execution price</b> or pro rata is fair; first-in-first-out after seeing gains is not.','블록 체결가: 평균가·비례 배분 OK.'],['Dissemination priority by <b>known interest</b> in the security is acceptable; by client size is not.','전파 대상은 관심 여부 기준(규모 기준 X).']]},
+
+{g:'III',code:'III(C)',name:'Suitability',ko:'적합성',
+ text:'1. When Members and Candidates are in an <b>advisory relationship</b> with a client, they must: (a) Make a reasonable inquiry into a client\'s or prospective client\'s investment experience, risk and return objectives, and financial constraints <b>prior to</b> making any investment recommendation or taking investment action and must <b>reassess and update</b> this information regularly. (b) Determine that an investment is suitable to the client\'s financial situation and consistent with the client\'s <b>written</b> objectives, mandates, and constraints before making a recommendation or taking action. (c) Judge the suitability of investments in the context of the client\'s <b>total portfolio</b>. 2. When Members and Candidates are responsible for managing a portfolio to a <b>specific mandate, strategy, or style</b>, they must make only investment recommendations or take only investment actions that are <b>consistent with the stated objectives and constraints</b> of the portfolio.',
+ textko:'자문관계: 추천 전에 고객의 경험·위험·수익목표·제약을 조사하고 정기적으로 갱신 / 서면 목표에 적합한지 판단 / 전체 포트폴리오 관점. 특정 mandate 운용: 그 mandate에 맞는 투자만.',
+ plain:'<b>“고객을 먼저 알고(Know your client), 그 고객에게 맞는 것만 권하라.”</b> 처음 만난 고객에게 아무것도 묻지 않고 종목부터 추천하면 위반. 고위험 종목 하나가 있어도 <b>전체 포트폴리오</b> 위험이 적절하면 위반이 아닐 수 있습니다.',
+ pts:[
+  ['In advisory relationships, gather client information at the beginning in the form of an <b>investment policy statement (IPS)</b>; consider risk tolerance and whether <b>leverage</b> is suitable.','처음에 IPS 작성. 레버리지 적합성도.'],
+  ['Managing a fund to an <b>index or stated mandate</b> → select only investments consistent with the mandate. (Suitability for individual investors is a concern for the <b>advisor recommending the fund</b>, not the fund manager.)','펀드매니저는 mandate만 지키면 됨.'],
+ ],
+ extra:`<h4>Unsolicited trade requests · 고객이 먼저 요청한 부적합 거래</h4>${table(['Situation','Response'],[
+   [['Always','공통'],['Do not make the trade until you have <b>discussed with the client</b> the reasons (based on the IPS) that it is unsuitable.','IPS 근거로 왜 부적합한지 먼저 논의.']],
+   [['Effect on total portfolio is <b>minimal</b>','영향 미미'],['May follow <b>firm policy</b> for unsuitable trades; client must <b>acknowledge</b> the discussion.','회사 정책 + 고객 확인.']],
+   [['<b>Material</b> impact','영향 큼'],['① <b>Update the IPS</b> → ② if refused, a separate <b>client-directed account</b> → ③ reconsider the relationship.','IPS 갱신 → 별도 계좌 → 관계 재검토.']],
+ ])}`,
+ recM:[['Put needs, circumstances, and objectives into a <b>written IPS</b> for each client','고객별 서면 IPS'],['Consider type of client, beneficiaries, <b>objectives (return and risk)</b>, <b>constraints (liquidity, expected cash flows, time, tax, legal and regulatory)</b>, and benchmarks','목표(수익·위험) / 제약(유동성·현금흐름·기간·세금·법규)'],['Review objectives and constraints <b>periodically</b>','주기적 검토']],
+ trap:[['“Must decline an unsuitable unsolicited trade” → <b>false</b>; discuss first.','무조건 거절은 오답.'],['Ignoring a trust beneficiary\'s request for a risky venture that conflicts with the IPS → <b>no violation</b>; the IPS governs.','IPS와 맞지 않는 수익자 요청을 따르지 않음 → 위반 아님.'],['Copying one brother\'s portfolio for the other “because they are similar” → violation.','비슷하다는 이유로 복사 → 위반.']]},
+
+{g:'III',code:'III(D)',name:'Performance Presentation',ko:'성과제시',
+ text:'When communicating investment performance information, Members and Candidates must make reasonable efforts to ensure that it is <b>fair, accurate, and complete</b>.',
+ textko:'투자성과를 전달할 때 공정·정확·완전하도록 합리적 노력을 해야 한다.',
+ plain:'성과 자랑할 때 <b>좋은 것만 골라 보여주지 마라.</b> 가장 잘된 계좌 하나, 가장 좋았던 1년만 보여주는 건 각주로 밝혀도 위반입니다. “앞으로도 이만큼 벌 수 있다”는 암시도 금지.',
+ pts:[
+  ['Must not misstate performance or mislead about investment performance.','성과 왜곡 금지.'],
+  ['Must not misrepresent past or reasonably expected performance, and must not <b>state or imply the ability to achieve a rate of return similar to that achieved in the past</b>.','과거 같은 수익 재현 암시 금지.'],
+  ['For <b>brief presentations</b>, make detailed information <b>available on request</b> and indicate that only limited information is presented.','간략 발표: 요청 시 상세 제공 명시.'],
+ ],
+ recM:[['Encourage firms to adhere to <b>GIPS</b>','GIPS 준수 권장'],['Consider the <b>sophistication of the audience</b>','청중 수준 고려'],['Present a <b>weighted composite</b> of similar portfolios rather than a single account','단일계좌 X, 가중 컴포지트 O'],['<b>Include terminated accounts</b> and state when they were terminated','해지계좌 포함'],['Disclose whether performance is <b>gross or net of fees</b>, model results, etc.','수수료 전/후 공시'],['Maintain data and records used to calculate performance','계산 근거 보관']],
+ trap:[['Showing the best year of the last five, disclosed only in a footnote → <b>violation</b>.','최고 연도만 보여주고 각주로 밝혀도 위반.'],['“Support forecasts with actual past performance” is <b>not</b> a recommendation of this Standard.','과거 성과로 미래 예측을 뒷받침하라는 권고는 없음.']]},
+
+{g:'III',code:'III(E)',name:'Preservation of Confidentiality',ko:'기밀유지',
+ text:'Members and Candidates must keep information about <b>current, former, and prospective clients</b> confidential unless: 1. The information concerns <b>illegal activities</b> on the part of the client; 2. Disclosure is <b>required by law</b>; or 3. The client or prospective client <b>permits</b> disclosure of the information.',
+ textko:'현재·과거·잠재 고객 정보는 비밀. 예외: ① 고객의 불법행위 ② 법적 요구 ③ 고객 허락.',
+ plain:'고객 정보는 비밀. <b>예외는 딱 3개</b>(불법, 법적 요구, 고객 허락). 불법 예외라도 <b>당국에만</b> 알릴 수 있지 친구에게 말하면 안 됩니다. CFA 징계 조사(PCP)에 협조하는 건 OK.',
+ pts:[
+  ['If illegal activities by a client are involved, members may have an obligation to <b>report to authorities</b>.','불법이면 당국 신고 의무 가능.'],
+  ['The Standard extends to <b>former clients</b>.','전 고객 포함.'],
+  ['Not intended to prevent cooperating with a <b>PCP investigation</b>. Cooperation is <b>required</b> for one\'s own conduct and <b>encouraged</b> for others\'.','PCP 협조 OK. 본인 건 의무, 타인 건 권장.'],
+ ],
+ recM:[['Disclose client information only to <b>authorized coworkers</b> who also work for the client','권한 있는 동료에게만'],['Follow firm procedures for <b>storage of electronic data</b>','전자데이터 보관 절차']],
+ trap:[['“Protected only for current clients” → <b>false</b>.','현재 고객만 보호 → 오답.'],['Telling a friend at a bank about a client\'s tax-evasion investigation → violation.','고객 조사 사실을 친구에게 → 위반.']]},
+
+{g:'IV',code:'IV(A)',name:'Loyalty',ko:'고용주에 대한 충실',
+ text:'In matters related to their employment, Members and Candidates must act for the benefit of their employer and not deprive their employer of the advantage of their skills and abilities, divulge confidential information, or otherwise cause harm to their employer.',
+ textko:'고용과 관련된 일에서 고용주의 이익을 위해 행동하고, 능력의 이점을 빼앗거나 기밀을 누설하거나 해를 끼치면 안 된다.',
+ plain:'<b>회사에 다니는 동안은 회사 편.</b> 이직 준비(사무실 임대, 회사 설립)는 OK지만, 퇴사 전에 고객을 빼가거나 고객 명단·모델을 가져가면 위반. 단, 고객·시장 보호를 위한 <b>내부고발</b>은 예외.',
+ pts:[
+  ['Applies to <b>employees</b>; independent contractors must abide by their agreements.','직원에게 적용.'],
+  ['Place client interests above employer\'s; consider firm integrity and sustainability.','고객 > 회사.'],
+  ['<b>No requirement</b> to put employer interests ahead of <b>family and personal obligations</b>.','가족보다 회사 우선일 필요 없음.'],
+  ['Duty to employer may be violated to <b>protect clients or market integrity</b>, when <b>not for personal gain</b> (whistleblowing).','개인 이득 없는 내부고발은 허용.'],
+  ['<b>Independent practice for compensation</b> is allowed if notification fully describes compensation, duration, and nature, and the employer <b>consents to all terms before it begins</b>.','유상 부업: 사전 통지 + 사전 동의.'],
+  ['Continue to act in your employer\'s best interest <b>until resignation is effective</b>.','퇴사 효력 발생 전까지 충실.'],
+  ['Employer records on any medium (home computer, tablet, cell phone) are <b>the property of the firm</b>.','모든 매체의 기록 = 회사 재산.'],
+  ['Simple knowledge of names and existence of former clients is generally <b>not confidential</b>; using experience or knowledge gained is <b>not prohibited</b>.','고객 이름 기억, 경험 사용은 OK.'],
+  ['Adhere to employers\' <b>social media</b> policies.','SNS 정책 준수.'],
+ ],
+ viol:[['<b>Misappropriation of trade secrets</b> or client lists','영업비밀·고객명단 유용'],['<b>Soliciting employer\'s clients prior to leaving</b>','퇴사 전 고객 권유'],['Self-dealing; misuse of confidential information','자기거래, 기밀 오용'],['Secretly recruiting coworkers to leave together','동료를 몰래 데리고 나가기'],['Using an outside organization\'s property (e.g., its software) for your own business','다른 조직 소유 프로그램을 내 사업에 사용 → I(D)']],
+ okk:[['Leasing office space and equipment for a new business before leaving','퇴사 전 사무실 임대 등 준비'],['Soliciting former clients <b>after</b> leaving, from memory and public information','퇴사 후 기억·공개정보로 고객 접촉'],['Recreating a model <b>from memory</b> (and recreating supporting documentation)','기억으로 모델 재구성 + 문서 재작성']],
+ recM:[['Give your employer a copy of the Code and Standards','Code 사본 제공'],['Use <b>separate social media accounts</b> for personal and professional use (best practice)','SNS 계정 분리']],
+ recF:[['No incentive and compensation systems that encourage unethical behavior','비윤리 조장 보상 금지']],
+ trap:[['Unpaid volunteer work similar to your job with a <b>free parking space</b> → compensation → disclose and get <b>written permission</b>.','무료 주차 = 보상.']]},
+
+{g:'IV',code:'IV(B)',name:'Additional Compensation Arrangements',ko:'추가 보상 약정',
+ text:'Members and Candidates must not accept gifts, benefits, compensation, or consideration that competes with or might reasonably be expected to create a conflict of interest with their employer\'s interest unless they obtain <b>written consent from all parties involved</b>.',
+ textko:'고용주 이익과 경쟁하거나 상충할 수 있는 보상은 모든 관련 당사자의 서면 동의 없이 받으면 안 된다.',
+ plain:'회사 밖에서 <b>추가 보수</b>를 받으려면 회사의 <b>서면 동의(이메일 OK)</b>가 필요합니다. 특히 고객이 “다음 분기에 수익 내면 여행 보내줄게”라고 하면 이건 <b>미래 성과</b>에 대한 보상이라 IV(B)입니다.',
+ pts:[
+  ['Compensation includes direct and indirect compensation from a client and other benefits from third parties.','고객·제3자로부터의 직간접 보상.'],
+  ['Written consent from the employer <b>includes email</b>.','이메일도 서면 동의.'],
+ ],
+ extra:`${table(['Client offers…','Classification','Requirement'],[
+   [['Bonus for <b>future performance</b>','미래 성과'],['Additional compensation arrangement → <b>IV(B)</b>','추가보상 약정'],['<b>Written consent in advance</b>','사전 서면 동의']],
+   [['Gift for <b>past performance</b>','과거 성과'],['Gift → <b>I(B)</b>','선물'],['<b>Disclose</b> to employer','고용주에 공시']],
+ ])}`,
+ recM:[['Make an <b>immediate written report</b> to your employer detailing proposed compensation and services','즉시 서면 보고'],['Part-time hires: discuss competing arrangements <b>when hired</b>','파트타임은 채용 시 논의']],
+ recF:[['Details of additional compensation should be <b>verified by the offering party</b>','제공자가 내용 검증']],
+ trap:[['“Inform employer, no permission needed” → <b>wrong</b> for future-performance bonuses.','미래 성과 보너스는 허가 필요.']]},
+
+{g:'IV',code:'IV(C)',name:'Responsibilities of Supervisors',ko:'감독자의 책임',
+ text:'Members and Candidates must make reasonable efforts to ensure that anyone subject to their supervision or authority complies with applicable laws, rules, regulations, and the Code and Standards.',
+ textko:'감독하는 모든 사람이 법규와 Code·Standards를 지키도록 합리적 노력을 해야 한다.',
+ plain:'관리자는 부하 직원의 위반을 <b>예방하고 찾아낼</b> 책임이 있습니다. 회사 컴플라이언스 체계가 엉망이면 사직이 아니라 <b>“제대로 된 절차가 생길 때까지 감독 책임을 서면으로 거절”</b>이 정답. 위반이 의심되면 <b>조사하면서 해당 직원 활동을 제한</b>.',
+ pts:[
+  ['Reasonable efforts to <b>prevent</b> and to <b>detect</b> violations.','예방 + 적발.'],
+  ['An adequate compliance system must meet industry standards, regulatory requirements, and the Code and Standards.','적절한 시스템의 기준.'],
+  ['Bring an inadequate compliance system to <b>management\'s attention</b> and recommend corrective action.','경영진에 알리고 시정 권고.'],
+  ['With no or inadequate procedures → <b>decline in writing</b> to accept supervisory responsibility until adequate procedures are adopted.','서면으로 감독 책임 거절.'],
+  ['If a violation occurs → respond promptly, conduct a <b>thorough investigation</b>, and <b>increase supervision or limit the wrongdoer\'s activities</b>.','조사 + 활동 제한/감독 강화.'],
+  ['Supervisors may <b>delegate</b> duties but <b>retain responsibility</b>; they apply to all subordinates, even those not subject to the Code.','위임해도 책임 유지. CFA 아닌 직원도 감독 대상.'],
+ ],
+ recM:[['Recommend the employer adopt a code of ethics','윤리강령 채택 권고'],['Once a compliance program exists: <b>distribute</b> it, <b>update</b> it, <b>educate</b> staff, issue <b>reminders</b>, require <b>professional conduct evaluations</b>, <b>review employee actions</b>','배포·갱신·교육·리마인드·평가·검토']],
+ recF:[['<b>Do not commingle</b> compliance procedures with the code of ethics','컴플라이언스와 윤리강령 섞지 말 것'],['Adequate procedures: clearly written, easy to understand, designated compliance officer, <b>checks and balances</b>, scope, permitted conduct, reporting and sanctions, incentives that don\'t reward unethical behavior','적절한 절차의 요건']],
+ trap:[['Reporting to management and issuing a written warning only → <b>not sufficient</b>.','보고·경고만으론 부족.'],['Restricting a trader\'s duties during an investigation → <b>appropriate</b>, not a violation.','조사 중 업무 제한 = 적절.']]},
+
+{g:'V',code:'V(A)',name:'Diligence and Reasonable Basis',ko:'성실과 합리적 근거',
+ text:'Members and Candidates must: 1. Exercise <b>diligence, independence, and thoroughness</b> in analyzing investments, making investment recommendations, and taking investment actions. 2. Have a <b>reasonable and adequate basis</b>, supported by appropriate research and investigation, for any investment analysis, recommendation, or action.',
+ textko:'성실·독립·철저하게 분석하고, 적절한 리서치에 근거한 합리적 근거를 가져야 한다.',
+ plain:'추천에는 <b>근거</b>가 있어야 합니다. 취미로 써본 제품이 좋아서, 경영진 말만 듣고 Buy를 내면 위반. 남의 리서치를 쓸 때는 <b>가정과 객관성을 검토하는 게 의무</b>입니다.',
+ pts:[
+  ['The required level of diligence depends on the investment philosophy, the member\'s role, and the employer\'s resources; it differs by product or service.','상황에 따라 필요한 수준이 다름.'],
+  ['Consider: <b>global and national economic conditions</b>; a firm\'s financial results, operating history, and <b>business cycle stage</b>; <b>fees and historical results</b> for a mutual fund; <b>limitations of quantitative models</b>; whether <b>peer group comparisons</b> are appropriate.','경제, 재무·경기국면, 펀드 수수료·실적, 모델 한계, 동종비교.'],
+  ['Using <b>third-party research</b>: reviewing its assumptions and evaluating its independence and objectivity is <b>required</b>.','제3자 리서치 검토 = 의무.'],
+ ],
+ recM:[['Criteria for third-party research: <b>assumptions</b> used, <b>rigor</b> of analysis, <b>timeliness</b>, <b>objectivity and independence</b>','가정·엄밀성·적시성·객관성'],['Encourage firms to: require research to have a substantiated basis; written due-diligence guidance; <b>measurable quality criteria</b> (base analyst pay on them); scenario testing for models; evaluate outside information providers and external advisers','회사 정책 권장 사항']],
+ trap:[['“Compensate analysts based on research quality” is <b>recommended</b>, not required.','품질연동 보상은 권고.'],['Relying solely on a detailed subscription service without due diligence on it → should conduct additional due diligence on the provider.','외부 리서치에만 의존 → 제공자 실사 필요.'],['Reviewing external advisers: check adherence to strategy, performance measures, and <b>internal controls</b>.','외부 운용사 실사 항목.']]},
+
+{g:'V',code:'V(B)',name:'Communication with Clients and Prospective Clients',ko:'고객 커뮤니케이션',
+ text:'Members and Candidates must: 1. Disclose the <b>nature of the services</b> provided, along with information about the <b>costs</b> to the client. 2. Disclose the <b>basic format and general principles</b> of the investment processes they use to analyze investments, select securities, and construct portfolios, and must promptly disclose any <b>changes</b> that might materially affect those processes. 3. Disclose <b>significant limitations and risks</b> associated with the investment process. 4. Use reasonable judgment in identifying which <b>factors are important</b> and include those factors in communications. 5. <b>Distinguish between fact and opinion</b> in the presentation of investment analysis and recommendations.',
+ textko:'① 서비스 내용과 비용 ② 투자 프로세스와 그 변경 ③ 한계와 위험 ④ 중요한 요인 ⑤ 사실과 의견의 구분.',
+ plain:'고객에게 <b>무엇을, 얼마에, 어떻게 하는지, 무엇이 위험한지</b> 알려야 합니다. 그리고 <b>예측은 의견</b>이지 사실이 아니라는 걸 분명히 해야 합니다.',
+ pts:[
+  ['Covers <b>all means and types</b> of communication, not just research reports.','모든 커뮤니케이션.'],
+  ['Disclose services and costs at initiation and on an ongoing basis. <b>Specific money amounts are not required</b> (e.g., percentage fees), but reasonably detailed cost information including <b>third-party costs</b> is.','구체 금액 불필요, 상세 비용정보는 필요.'],
+  ['<b>Expectations based on statistical modeling and analysis are not facts.</b> Include the basic characteristics of the security analyzed.','통계 예측 = 의견.'],
+  ['For nontraditional investments, communicate the <b>specific risk factors</b>; describe potential gains and losses in terms of <b>total returns</b>.','특유의 위험, 총수익 관점.'],
+  ['Communicate significant changes in risk characteristics; explain <b>model limitations and assumptions</b>.','위험 변화, 모델 한계.'],
+  ['Inform clients of inherent limitations such as <b>liquidity</b> (exit without significant extra cost) and <b>capacity</b> (absorb additional investment without reducing returns).','유동성·용량 한계.'],
+ ],
+ recM:[['Maintain records indicating the nature of the research; supply additional information if requested','리서치 성격 기록']],
+ trap:[['Showing only scenarios where the euro rises → violation (no downside scenario).','상승 시나리오만 → 위반.'],['Shifting allocation based on a rate view → tell clients it is an <b>opinion</b>, not a fact.','금리 전망은 의견임을 밝힐 것.'],['Omitting a sharp drop in insider buying from a report → may violate V(B).','중요 요인 누락.']]},
+
+{g:'V',code:'V(C)',name:'Record Retention',ko:'기록보존',
+ text:'Members and Candidates must develop and maintain appropriate records to support their investment analyses, recommendations, actions, and other investment-related communications with clients and prospective clients.',
+ textko:'투자분석·추천·행위·고객 커뮤니케이션을 뒷받침하는 기록을 작성하고 보관해야 한다.',
+ plain:'근거 자료를 남겨라. 기록은 <b>회사 재산</b>이라 이직하면 가져갈 수 없고 <b>공개정보로 다시 만들어야</b> 합니다. 규정이 없으면 <b>최소 7년</b> 보관 권고.',
+ pts:[
+  ['Records are the <b>property of the firm</b>. Communications via any medium (<b>emails, text messages</b>) are records.','기록=회사 재산. 이메일·문자 포함.'],
+  ['A member who changes firms must <b>re-create</b> documentation using public information or information from the company, and <b>must not rely on memory or materials from the previous firm</b>.','이직 시 재작성.'],
+  ['If no regulatory standards or firm policies: <b>seven-year minimum</b> holding period (recommended).','규정 없으면 최소 7년.'],
+  ['Recordkeeping is generally the <b>firm\'s responsibility</b>.','일반적으로 회사 책임.'],
+ ],
+ trap:[['Taking prior performance records and research from a former employer, <b>with permission</b> → no violation.','허락받고 가져가면 OK.'],['Shredding all working documents after publishing a report → violation.','작성 후 자료 파쇄 → 위반.'],['Unsure if the firm meets 7 years → review procedures with supervisor/compliance (not keep personal copies at home).','개인 사본 보관이 아니라 상사·컴플라이언스와 검토.']]},
+
+{g:'VI',code:'VI(A)',name:'Avoid or Disclose Conflicts',ko:'이해상충 회피·공시',
+ text:'Members and Candidates must <b>avoid or make full and fair disclosure</b> of all matters that could reasonably be expected to impair their independence and objectivity or interfere with respective duties to their clients, prospective clients, and employer. Members and Candidates must ensure that such disclosures are <b>prominent, are delivered in plain language, and communicate the relevant information effectively</b>.',
+ textko:'독립성을 해치거나 의무를 방해할 수 있는 모든 사항은 피하거나 완전·공정하게 공시. 공시는 눈에 띄게, 쉬운 말로.',
+ plain:'내 이익이 끼어 있으면 <b>숨기지 마라.</b> 추천 종목을 내가(또는 가족이) 갖고 있거나, 그 회사에 입사 면접 중이거나, 이사회 멤버라면 고용주·고객에게 알려야 합니다.',
+ pts:[
+  ['Avoid conflicts when possible; otherwise <b>fully disclose</b> to clients, prospects, and employers.','회피 우선, 안 되면 공시.'],
+  ['Examples: broker-dealer <b>market-making</b>, <b>board service</b>, <b>stock ownership</b> (most common), <b>compensation/bonus structures</b>.','시장조성, 이사회, 주식보유, 보상구조.'],
+  ['Give employers enough information to judge the impact of a conflict; report conflicts <b>promptly</b>.','고용주에 충분한 정보, 신속 보고.'],
+  ['<b>Beneficial ownership</b> includes shares held in trust where the member has a pecuniary interest or voting power.','신탁 주식도 실질소유일 수 있음.'],
+ ],
+ trap:[['Writing on a firm where you are <b>interviewing for a job</b> and where a relative holds shares → disclose <b>both</b>.','입사 면접 + 친척 보유 둘 다 공시.'],['Father is a major shareholder of a recommended hedge fund → disclose to <b>employer</b> and follow its guidance on client disclosure.','아버지 회사 추천 → 고용주에 먼저 공시.'],['Payments from subadvisers based on assets placed → disclose to clients.','하위자문사로부터 대가 → 공시.']]},
+
+{g:'VI',code:'VI(B)',name:'Priority of Transactions',ko:'거래 우선순위',
+ text:'Investment transactions for clients and employers must have priority over investment transactions in which a Member or Candidate is the <b>beneficial owner</b>.',
+ textko:'고객·고용주의 거래가 회원이 실질소유자인 거래보다 우선해야 한다.',
+ plain:'<b>고객 먼저, 회사 다음, 나는 마지막.</b> 고객 대량 주문 전에 내 계좌로 먼저 사는 <b>front-running</b>은 대표적 위반. 고객이 충분히 반응할 기회를 준 뒤라면 같은 종목을 사도 됩니다.',
+ pts:[
+  ['Personal transactions may be undertaken only after clients and the employer have had an <b>adequate opportunity to act</b>.','고객·회사가 행동할 기회를 가진 후.'],
+  ['<b>Family member accounts that are client accounts</b> should not be disadvantaged.','가족 고객계좌 불이익 금지.'],
+  ['Must not act on information about <b>pending trades</b> for personal gain. Personal trades must <b>not disadvantage clients</b>.','대기 주문 정보 이용 금지.'],
+  ['When requested, disclose the firm\'s <b>personal trading policies</b> to investors.','요청 시 개인거래 정책 공시.'],
+  ['Personal trades <b>contrary</b> to the firm\'s recommendation are <b>not prohibited</b> if they do not disadvantage clients.','반대 방향 거래 자체는 허용.'],
+ ],
+ recM:[['Avoid IPO conflicts by <b>not participating in IPOs</b>','IPO 불참']],
+ recF:[['Limit employee participation in <b>equity IPOs</b>; restrict <b>private placements</b>','IPO·사모 제한'],['<b>Blackout/restricted periods</b> before client trades — no <b>front running</b>','블랙아웃 기간'],['<b>Reporting procedures</b>: duplicate trade confirmations, disclosure of personal holdings and beneficial ownership, <b>preclearance</b>','거래확인서 사본, 보유 공시, 사전승인']],
+ trap:[['Advising clients to sell, then selling your own holding 24 hours later → <b>congruent</b> with VI(B).','고객에게 먼저 알리고 하루 뒤 매도 = OK.'],['“Personal holdings should not be reported to employers for confidentiality” → <b>conflicts</b> with recommended procedures.','개인 보유를 보고하지 말라는 것은 권고와 반대.'],['Adding your own shares to a large client sell order you expect to move the price → violation.','고객 대량 매도 주문에 내 주식을 끼워 팖 → 위반.']]},
+
+{g:'VI',code:'VI(C)',name:'Referral Fees',ko:'소개수수료',
+ text:'Members and Candidates must disclose to their <b>employer, clients, and prospective clients</b>, as appropriate, any compensation, consideration, or benefit received from or paid to others for the recommendation of products or services.',
+ textko:'상품·서비스 추천의 대가로 받거나 준 모든 보상을 고용주·고객·잠재고객에게 공시해야 한다.',
+ plain:'“이 회사 소개해 드릴게요” 뒤에 <b>소개비</b>가 있다면 알려야 합니다. 고객이 <b>총비용과 추천의 편파성</b>을 판단할 수 있게 하는 게 목적. 공시는 <b>계약 전(관계 시작 시점)</b>에.',
+ pts:[
+  ['Disclosure allows clients to evaluate the <b>full cost</b> of the service and any <b>potential partiality</b>.','총비용·편파성 판단.'],
+  ['<b>All types of consideration</b> must be disclosed (cash, research, referrals in return, discounts, gifts).','모든 형태의 대가.'],
+  ['Disclose <b>before</b> the client enters into the relationship; disclosing only after they become clients may not satisfy the Standard.','관계 시작 전 공시.'],
+ ],
+ recM:[['Encourage clear procedures on referral compensation; update employers <b>at least quarterly</b>','고용주에 분기 1회 업데이트']],
+ recF:[['Firms that do not prohibit referral fees should have clear <b>approval procedures</b> and policies on the nature and value of referral compensation','승인 절차·정책']],
+ trap:[['Must disclose the <b>nature and value</b> of the arrangement (e.g., $1,000 per referral) at the time of referral.','금액·성격까지 소개 시점에 공시.'],['Purpose of disclosure: help the client evaluate <b>partiality</b> — not to request discounts.','목적 = 편파성 판단.']]},
+
+{g:'VII',code:'VII(A)',name:'Conduct as Participants in CFA Institute Programs',ko:'CFA 프로그램 참가자로서의 행위',
+ text:'Members and Candidates must not engage in any conduct that compromises the reputation or integrity of CFA Institute or the CFA designation or the integrity, validity, or security of CFA Institute programs.',
+ textko:'CFA Institute·CFA 명칭의 평판과 무결성, 프로그램의 무결성·타당성·보안을 해치는 행위를 하면 안 된다.',
+ plain:'<b>시험 내용 유출 금지, 부정행위 금지.</b> “이번 시험에 파생상품 문제가 하나도 없었다”도 유출입니다. 하지만 “CFA Institute 운영이 별로다” 같은 <b>비판·의견은 자유</b>.',
+ viol:[['<b>Cheating</b> on the CFA exam or any exam','부정행위'],['Revealing <b>broad or specific topics tested</b>, content of questions, or formulas required or not required','출제 주제·문제·공식 공개'],['Not following exam rules (calculator, personal belongings, <b>Candidate Pledge</b>), e.g., writing after “pencils down”','시험 규정 위반(종료 후 마킹)'],['Giving confidential information on the CFA Program to candidates or the public','기밀 정보 제공'],['Improperly using the designation; misrepresenting information on the <b>PCS</b>','명칭 오용, PCS 허위'],['Volunteers soliciting or revealing questions, grading, or scoring','자원봉사자 정보 공개'],['Copying and selling copyrighted prep materials (also I(A))','저작권 자료 복제·판매']],
+ okk:[['Expressing <b>opinions</b> or disagreeing with CFA Institute policies','의견·비판 표현'],['Sharing candidates\' general opinions on exam <b>difficulty</b>','난이도에 대한 일반적 의견'],['Participating in CFA-related internet forums','CFA 관련 포럼 참여']],
+ trap:[['“None of the questions touched on Alternative Investments” → violation (topic not tested is still exam content).','안 나온 주제 공개도 위반.'],['“I don\'t think CFA Institute tested fairly; the X rule wasn\'t on the exam” → violation because it reveals content.','불만 표시 자체는 OK지만 출제 내용을 밝히면 위반.']]},
+
+{g:'VII',code:'VII(B)',name:'Reference to CFA Institute, the CFA Designation, and the CFA Program',ko:'CFA 명칭·프로그램 언급',
+ text:'When referring to CFA Institute, CFA Institute membership, the CFA designation, or candidacy in the CFA Program, Members and Candidates must not <b>misrepresent or exaggerate</b> the meaning or implications of membership in CFA Institute, holding the CFA designation, or candidacy in the CFA Program.',
+ textko:'CFA 회원 자격·명칭·응시자 신분의 의미를 거짓으로 말하거나 과장하면 안 된다.',
+ plain:'<b>사실은 OK, 과장은 금지.</b> “3번 모두 한 번에 합격” = OK. “CFA라서 더 높은 수익을 낼 것” = 위반. 아직 차터를 받지 않았는데 쓰거나, 회비 안 냈는데 쓰거나, “CFA Level II”처럼 <b>부분 자격</b>을 암시하면 위반.',
+ pts:[
+  ['No promotional promises tied to the designation — <b>over-promising competence or future investment results</b> (higher performance, less risk).','성과·역량 과장 금지.'],
+  ['To maintain membership: <b>sign the PCS annually</b> and <b>pay dues annually</b>; otherwise no longer an active member.','매년 PCS 서명 + 회비.'],
+  ['<b>There is no partial CFA designation.</b>','부분 자격 없음.'],
+  ['Stating a candidate passed all three exams in three years (if true) is acceptable; <b>claiming superior ability</b> because of this is not.','사실은 OK, 우월성 주장 X.'],
+ ],
+ extra:`<h4>Proper use of the marks · 표기 규칙 (Handbook 보충)</h4>${table(['✓ Correct','✗ Incorrect'],[
+   ['John Kim, CFA','John Kim, C.F.A. / a CFA'],
+   ['CFA charterholder · CFA designation','CFAs · CFA-type portfolio'],
+   ['Level II candidate in the CFA Program','CFA Level II · “CFA (Level II)”'],
+   ['“Passed all three levels on the first attempt”','“Completed the CFA course” (implies the charter)'],
+ ])}`,
+ recM:[['Make sure your firm knows the proper references to your designation or candidacy','회사에 올바른 표기 안내']],
+ trap:[['Claiming to have passed Level II when you did not sit the exam → <b>VII(B)</b> (referencing candidacy).','시험 안 봤는데 합격했다고 → VII(B).'],['Using the designation before the charter is awarded, or implying superior performance → violation.','차터 받기 전 사용·우월 성과 암시 → 위반.'],['“M.S. in Finance” on cards before the degree is awarded → <b>I(C)</b> Misrepresentation (not VII(B)).','학위 받기 전 명함 기재 → I(C).']]},
+];
+
+const GROUPS=[['I','Professionalism','전문가 정신'],['II','Integrity of Capital Markets','자본시장 무결성'],['III','Duties to Clients','고객에 대한 의무'],['IV','Duties to Employers','고용주에 대한 의무'],['V','Investment Analysis, Recommendations, and Actions','투자분석·추천·행위'],['VI','Conflicts of Interest','이해상충'],['VII','Responsibilities as a CFA Institute Member or CFA Candidate','CFA 회원·응시자 책임']];
+
+function stdCard(s){
+  const pairList=a=>`<ul>${a.map(x=>`<li><span class="en">${x[0]}</span>${x[1]?`<span class="ko">${x[1]}</span>`:''}</li>`).join('')}</ul>`;
+  return `<article class="std" id="s-${s.code.replace(/[()]/g,'')}" style="--c:${cvar(s.g)}">
+   <div class="sh"><span class="code">${s.code}</span><span class="sn">${s.name}</span><span class="sk">${s.ko}</span></div>
+   <div class="sb">
+    ${quote(s.text,s.textko)}
+    ${plain(s.plain)}
+    ${s.pts?`<h4>Key points · 핵심</h4>${li(s.pts)}`:''}
+    ${s.extra||''}
+    ${(s.viol||s.okk)?`<div class="grid2">${s.viol?`<div class="box bad"><h4>Violation · 위반</h4>${pairList(s.viol)}</div>`:''}${s.okk?`<div class="box good"><h4>Not a violation · 위반 아님</h4>${pairList(s.okk)}</div>`:''}</div>`:''}
+    ${(s.recM||s.recF)?`<details><summary>Recommendations · 권고사항 (Members / Firms)</summary><div>${s.recM?`<h4>Recommendations for Members</h4>${li(s.recM)}`:''}${s.recF?`<h4>Recommendations for Firms</h4>${li(s.recF)}`:''}</div></details>`:''}
+    ${s.trap?trap(s.trap):''}
+   </div></article>`;
+}
+const R91=()=>`<h2 class="rt">R91 · Guidance for Standards I–VII</h2>
+<p class="rsub">7 Standards · 23 subsections — 각 카드: 원문 → 쉽게 말하면 → 핵심 → 위반/비위반 → 권고사항 → 함정</p>
+<div class="chips">${GROUPS.map(g=>`<button class="chip" style="--c:${cvar(g[0])}" data-g="${g[0]}"><i></i>${g[0]}</button>`).join('')}</div>
+${GROUPS.map(g=>`<section class="grp" id="g-${g[0]}" style="--c:${cvar(g[0])}"><h3><span class="gn">Standard ${g[0]}</span>${g[1]} <span class="sk" style="font-weight:500;color:var(--muted);font-size:14px">${g[2]}</span></h3>${STD.filter(s=>s.g===g[0]).map(stdCard).join('')}</section>`).join('')}`;
+
+/* ---------- R92 ---------- */
+const R92=`<div class="col">
+<h2 class="rt">R92 · Introduction to the Global Investment Performance Standards (GIPS)</h2>
+<p class="rsub">운용사 성과보고의 국제 표준 · LOS 92.a–e</p>
+${plain('운용사가 각자 마음대로 성과를 보여주면 <b>좋은 것만 골라</b> 보여주게 됩니다. GIPS는 <b>“모든 운용사가 같은 방식으로 계산·보고하라”</b>는 표준이라, 고객이 운용사끼리 공정하게 비교할 수 있게 해줍니다.')}
+<h3><span class="los">92.a</span>Why GIPS was created · 왜 만들었나</h3>
+<p class="en">Choices that tend to bias results:</p>
+${li([
+ ['Choosing a <b>top-performing portfolio</b> and claiming it represents the firm\'s overall results (representative account)','최고 성과 계좌만 대표로 제시'],
+ ['<b>Excluding terminated accounts</b>, which may have been closed due to sub-par performance (survivorship bias)','부진해서 해지된 계좌 빼기'],
+ ['<b>Selecting time periods</b> that put firm performance in the best possible light','유리한 기간만 선택'],
+])}
+${table(['Item','Key point'],[
+ [['Purpose','목적'],['Standardized methodology → <b>meaningful comparison</b> across firms; useful information for clients and investors; <b>avoids misrepresentation</b>; gives oversight bodies a clearer view.','비교 가능, 허위표시 방지.']],
+ [['Who can claim compliance','누가 준수 주장 가능'],['Only <b>firms that manage assets for others</b>. Compliance is <b>voluntary</b> and may be claimed only if the firm complies <b>fully and on a firmwide basis</b>.','남의 자산을 운용하는 회사만, 자발적, 전부·전사적.']],
+ [['Cannot claim','주장 불가'],['Related firms such as <b>software developers</b> may state that they <b>endorse</b> GIPS but may <b>not claim compliance</b>.','지지는 가능, 준수 주장 불가.']],
+ [['Who benefits','수혜자'],['<b>Current and prospective clients</b> and investors (and consultants who advise them); oversight bodies.','기존·잠재 고객, 컨설턴트.']],
+])}
+<h3><span class="los">92.b</span>Eight sections of the GIPS standards for firms · 8개 섹션</h3>
+${table(['#','Section','Key point'],[
+ ['1','<b>Fundamentals of Compliance</b>',['(a) <b>defining the firm</b>, (b) providing GIPS-compliant reports to <b>all clients and prospects</b>, (c) complying with laws, (d) no false or misleading information','회사 정의, 보고서 제공, 법규, 허위 금지']],
+ ['2','<b>Input Data and Calculation Methodology</b>',['Consistent input data; required methodologies; <b>uniformity</b> across firms','일관된 데이터·계산방법']],
+ ['3','<b>Composite and Pooled Fund Maintenance</b>',['Composite return = <b>asset-weighted average</b> (not simple average) of portfolios; pooled funds included if they fit','자산가중평균']],
+ ['4','Composite Time-Weighted Return Report',['Sections 4–7: required/recommended reporting procedures and <b>disclosures</b>; a disclosure that does not apply need not be mentioned','4–7: 보고 절차·공시']],
+ ['5','Composite Money-Weighted Return Report',''],
+ ['6','Pooled Fund Time-Weighted Return Report',''],
+ ['7','Pooled Fund Money-Weighted Return Report',''],
+ ['8','<b>GIPS Advertising Guidelines</b>',['Apply only to advertisements that <b>reference GIPS compliance</b>','GIPS 준수를 언급하는 광고에만']],
+])}
+<h3><span class="los">92.c</span>Purpose of composites · 컴포지트</h3>
+${li([
+ ['A <b>composite</b> is a grouping of individual <b>discretionary portfolios</b> representing a <b>similar investment strategy, objective, or mandate</b> (e.g., large-cap stocks, investment-grade domestic bonds, index-tracking accounts).','같은 전략으로 운용하는 재량 포트폴리오 묶음.'],
+ ['Must include <b>all fee-paying, discretionary portfolios (current and past)</b> managed in accordance with that strategy.','같은 전략의 모든 수수료 지급 재량 포트폴리오(현재 + 과거).'],
+ ['The firm should identify which composite each portfolio belongs to <b>before the portfolio\'s performance is known</b> (ex ante).','성과를 알기 전에 소속 결정 → 체리피킹 방지.'],
+ ['All fee-paying discretionary portfolios must be included in <b>at least one composite</b>; terminated accounts are included.','최소 1개 컴포지트, 해지계좌 포함.'],
+])}
+${plain('“대형주 컴포지트”에는 회사가 대형주 전략으로 운용한 <b>모든</b> 재량 계좌가 들어가야 합니다. 성과가 나빠 해지된 계좌도 포함. 가치주 계좌와 성장주 계좌를 한 컴포지트에 섞으면 <b>전략이 달라서</b> 안 됩니다.','예시')}
+<h3><span class="los">92.d</span>Definition of the firm and discretion · 회사와 재량의 정의</h3>
+${li([
+ ['The <b>firm</b> = the corporation, subsidiary, or division <b>held out to clients as a business entity</b>. Different geographic locations under one name are all included.','고객에게 하나의 사업체로 제시되는 단위. 같은 이름의 모든 지점 포함.'],
+ ['<b>Discretion</b>: if client restrictions prevent the manager from carrying out the intended strategy, the portfolio may be <b>nondiscretionary</b> and not included in a composite. Firms must set criteria.','고객 제약으로 전략 수행 불가 → 비재량 → 제외 가능.'],
+])}
+<h3><span class="los">92.e</span>Independent verification · 독립 검증</h3>
+${li([
+ ['Firms are <b>encouraged</b> (not required) to pursue independent verification.','권장, 의무 아님.'],
+ ['Verification applies to the <b>entire firm</b>, not a selected composite; performed by a <b>third party</b>, not the firm itself.','회사 전체, 제3자.'],
+ ['The verifier attests that (1) the firm has complied with all GIPS <b>composite construction</b> requirements on a firmwide basis and (2) the firm\'s <b>processes and procedures</b> are established to present performance per GIPS methodology, data requirements, and format.','검증 내용 2가지.'],
+ ['Disclosure: “[Firm] has been verified for the periods [dates] by [verifier]. A copy of the verification report is available upon request.”','검증 공시 문구.'],
+])}
+${trap([
+ ['GIPS apply to <b>investment management firms</b> and serve their <b>existing and prospective clients</b> — not issuers, not consultants claiming compliance.','적용 대상 = 운용사.'],
+ ['A holding company that is not held out as an investment manager can <b>least likely</b> claim compliance; a division or subsidiary held out as an investment manager can.','지주회사보다 운용 사업부·자회사.'],
+ ['The <b>firm</b> itself is responsible for claiming and maintaining compliance — not the verifier.','준수 책임 = 회사 자신.'],
+ ['Hiring a verifier is <b>least likely required</b>; providing compliant presentations to prospects is required.','검증인 고용은 의무 아님.'],
+ ['Composites may not include <b>nondiscretionary</b> accounts or <b>model results</b>; they must include closed accounts.','비재량·모델 결과 제외, 해지 계좌 포함.'],
+])}
+</div>`;
+
+/* ---------- R93 ---------- */
+const CASES=[
+['I(A)','A member reports that the firm overcharges clients for reimbursable expenses; only some clients get remedied.','Dissociate; do not work with clients still being overcharged.','분리해야 함','v'],
+['I(A)','Fails to investigate high-risk money-laundering transactions of a long-standing client with board ties.','Violation','위반','v'],
+['I(A)','Forges customer signatures for expediency.','Violation (and illegal)','위반','v'],
+['I(B)','Contributes to a politician\'s campaign expecting preferential treatment for pension mandates.','Violation','위반','v'],
+['I(C)','Assures a client that returns will outweigh the penalty for switching investments.','Violation — implied guarantee','위반(수익 보장)','v'],
+['I(C)','Key person leaves while a pension proposal is under consideration.','Must inform the prospect (omission)','알려야 함','v'],
+['I(C)','CEO posts “funding secured at $420” — untrue, “a joke.”','Violation','위반','v'],
+['I(D)','Arrested for minor offenses as civil disobedience while protesting.','Not necessarily a violation','반드시 위반 아님','o'],
+['I(D)','Uses the error-correction policy to put his own money into a client account to look better.','Violation','위반','v'],
+['I(E)','Takes a supervisory role without gaining competence as a supervisor.','Violation','위반','v'],
+['II(A)','Overhears a friend\'s call and infers an imminent takeover; trades.','Violation','위반','v'],
+['II(A)','Shares a regulator\'s positive drug response learned at an analyst meeting with management.','Violation — selective sharing','위반(선택적 공유)','v'],
+['II(B)','Lists people who do not own shares to meet the minimum shareholder requirement.','Violation','위반','v'],
+['III(A)','Client agreements excuse reps from acting in clients\' best interests and restrict claims.','Violation — no “opt out”','위반','v'],
+['III(A)','Executes trades for a self-directed client who received margin policies.','No violation','위반 아님','o'],
+['III(A)','Charges a client expenses that reduce total costs (weekend stay to lower airfare).','No violation','위반 아님','o'],
+['III(B)','Simultaneous emails on a changed recommendation + paid weekly updates (disclosed, no rec. changes).','No violation','위반 아님','o'],
+['III(C)','Recommends higher risk than suitable because of tax advantages.','Violation','위반','v'],
+['III(C)','Makes a client-requested change without investigating circumstances.','Violation','위반','v'],
+['III(D)','Presents a pre-inception composite so a new fund looks long-established.','Violation','위반','v'],
+['III(E)','Downloads client PII to a home server that is hacked; IT security head allowed it.','Both likely violate','둘 다 위반','v'],
+['IV(A)','Disparages current employer while promoting the firm she will join.','Violation','위반','v'],
+['IV(A)','Copies records and takes them to regulators after management ignores mis-selling.','No violation — acting for clients','위반 아님','o'],
+['IV(A)','Takes a client list with personal information when leaving, only for thank-you notes.','Violation','위반','v'],
+['IV(B)','Companies seeking coverage offer a bonus if selected.','Needs written approval from employer','서면 승인 필요','v'],
+['IV(C)','Branch supervisor with no written compliance policies or training.','Violation — should decline responsibility','위반','v'],
+['IV(C)','Accepts CCO title without authority to contact clients or enforce policies.','Violation — should decline','위반','v'],
+['V(A)','Recommends without diligent analysis; a colleague copies the report.','Both violate','둘 다 위반','v'],
+['V(B)','Rating agency changes CMBS methodology without disclosure.','Violation','위반','v'],
+['V(C)','Does not update written client profiles in a timely manner.','Violation','위반','v'],
+['VI(A)','Receives payments from third-party subadvisors.','Must disclose to clients','공시 필요','v'],
+['VI(B)','Front-runs client block purchases; tips relatives; allocates winners to personal accounts.','Violation (and likely III(B))','위반','v'],
+['VI(C)','Rewards referring clients with parties, fee discounts, gift cards without disclosure.','Violation','위반','v'],
+['VII(A)','Prep instructor shares general difficulty opinions vs. solicits specific questions.','First OK / second violation','전자 OK, 후자 위반','o'],
+['VII(B)','Member who has not paid dues uses CFA on cards; colleague claims all seniors are charterholders.','Both violate','둘 다 위반','v'],
+];
+const R93=()=>`<div class="col">
+<h2 class="rt">R93 · Ethics Application</h2>
+<p class="rsub">LOS 93.a Evaluate practices, policies, and conduct · 93.b Explain whether they violate — Standard별 사례 판정표</p>
+${plain('R93은 새 이론이 없고, 앞에서 배운 Standards를 <b>실제 사례에 적용</b>하는 연습입니다. 아래 표의 <b>상황 → 판정</b>을 보고 “왜?”를 R91 카드로 확인하세요.')}
+<div class="filters" id="casef" style="margin:6px 0 10px">${['All','I','II','III','IV','V','VI','VII'].map((x,i)=>`<button class="fbtn" aria-pressed="${i===0}" data-cg="${x}">${x==='All'?'전체':'Std '+x}</button>`).join('')}</div>
+<div class="tw"><table id="casetbl"><thead><tr><th>Std</th><th>Situation · 상황</th><th>Verdict · 판정</th></tr></thead><tbody>
+${CASES.map(c=>`<tr data-g="${c[0].split('(')[0]}"><td style="font-family:var(--f-mono);font-weight:600;color:${cvar(c[0].split('(')[0])}">${c[0]}</td><td>${c[1]}</td><td><span class="en" style="font-weight:600;color:${c[4]==='o'?'var(--good)':'var(--bad)'}">${c[2]}</span><span class="ko">${c[3]}</span></td></tr>`).join('')}
+</tbody></table></div>
+</div>`;
+
+/* ---------- CHEAT SHEET ---------- */
+const SHEET=`<div class="col">
+<h2 class="rt">Cheat Sheet · 비교·암기</h2>
+<p class="rsub">시험 직전에 보는 혼동 포인트 총정리</p>
+<div class="num-row">
+ <div class="ncell"><b>6</b><span>Code of Ethics components</span></div>
+ <div class="ncell"><b>7 / 23</b><span>Standards / subsections</span></div>
+ <div class="ncell"><b>5</b><span>PCP inquiry triggers</span></div>
+ <div class="ncell"><b>3</b><span>Confidentiality exceptions</span></div>
+ <div class="ncell"><b>4</b><span>Decision framework steps</span></div>
+ <div class="ncell"><b>8</b><span>GIPS sections</span></div>
+ <div class="ncell"><b>7 yrs</b><span>Record retention (recommended)</span></div>
+ <div class="ncell"><b>Quarterly</b><span>Client statements · referral updates</span></div>
+</div>
+<h3>Required vs. Recommended · 의무 vs 권고</h3>
+${table(['Item','Required · 의무','Recommended / Encouraged · 권고'],[
+ ['Reporting violations',['— (local law may require)','현지법상 의무일 수 있음'],['Report to PCP: <b>strongly encouraged</b>','강력 권장']],
+ ['Continuing education',['Maintain competence','역량 유지'],['CE participation','계속교육 참여']],
+ ['Client statements','—',['<b>At least quarterly</b> itemized statements','분기 1회']],
+ ['Third-party research',['<b>Review assumptions; evaluate independence & objectivity</b>','가정 검토·객관성 평가'],['Pay analysts on research quality; written policies','품질연동 보상']],
+ ['Record retention',['Maintain appropriate records','기록 유지'],['<b>7-year</b> minimum if no rule','최소 7년']],
+ ['GIPS compliance',['If claimed: <b>fully & firmwide</b>','주장 시 전부·전사'],['Compliance itself is <b>voluntary</b>','자발적']],
+ ['GIPS verification',['If done: <b>third party, firmwide</b>','제3자·전사'],['Verification is <b>encouraged</b>','권장']],
+ ['PCP cooperation',['Own conduct','본인 건'],['Others\' conduct','타인 건']],
+ ['Proxy voting',['Informed and responsible','책임 있게'],['Not every proxy (cost-benefit)','전부 행사 불필요']],
+ ['IPOs',['Never ahead of clients','고객보다 먼저 X'],['Members don\'t participate; firms pre-approve','불참·사전승인']],
+])}
+<h3>Disclosure vs. Written consent · 공시 vs 서면 동의</h3>
+${table(['Situation','Action','Std'],[
+ [['Client gift for <b>past</b> performance','과거 성과 선물'],['<b>Disclose</b> to employer (before if possible, otherwise after)','고용주 공시'],'I(B)'],
+ [['Client bonus for <b>future</b> performance','미래 성과 보너스'],['<b>Written consent in advance</b> (email OK)','사전 서면 동의'],'IV(B)'],
+ [['Independent practice competing with employer','경쟁 부업'],['Notify fully + employer <b>consent before it begins</b>','사전 동의'],'IV(A)'],
+ [['Referral fees','소개수수료'],['<b>Disclose</b> nature and value to employer, clients, prospects — before the relationship','관계 시작 전 공시'],'VI(C)'],
+ [['Stock ownership, board seats, job interviews','이해상충'],['<b>Avoid or fully disclose</b> — prominent, plain language','회피 또는 공시'],'VI(A)'],
+ [['Issuer-paid research','발행사 유료 리서치'],['Flat fee + <b>disclose</b> it is issuer-paid','정액 + 공시'],'I(B)'],
+ [['Premium service levels','서비스 차등'],['<b>Disclose</b>; available to all who pay','공시 + 누구나'],'III(B)'],
+])}
+<h3>Commonly confused · 자주 헷갈리는 개념</h3>
+${table(['Concept','Rule'],[
+ ['Fairly vs. equally',['III(B) requires <b>fair</b>, not <b>equal</b>, treatment','공정 ≠ 동일']],
+ ['Mosaic theory',['Public + <b>non-material</b> nonpublic → OK; any material nonpublic piece → violation','중요 미공개가 섞이면 위반']],
+ ['II(B) intent',['Price/volume impact alone is not a violation; <b>intent to mislead</b> is required','의도 필요']],
+ ['I(C) knowingly',['Misrepresentation must be <b>knowing</b>; omission counts','알면서 + 누락 포함']],
+ ['I(D) scope',['Personal conduct only if it reflects on <b>honesty, integrity, competence</b>','모든 불법 ≠ 부정행위']],
+ ['Loyalty owed to',['Pension → <b>beneficiaries</b>; client may be the investing public','연기금 = 수익자']],
+ ['Priority',['<b>Clients > employer > self</b>','고객 > 회사 > 나']],
+ ['Family accounts',['Client family accounts = <b>any other client</b>','동일 대우']],
+ ['Supervisor response',['Inadequate compliance → <b>decline in writing</b>; violation → investigate + limit activities','서면 거절 / 조사·제한']],
+ ['I(A) response',['Supervisor/compliance → <b>dissociate</b> → resign as last resort','보고 → 분리 → 퇴사']],
+ ['Confidentiality',['Illegal / required by law / client permits; illegal info → <b>authorities only</b>','당국에만']],
+ ['Leaving employer',['Preparing OK; soliciting clients before leaving ✗; client lists/models ✗; memory & experience ✓','준비 OK, 퇴사 전 권유 X']],
+ ['CFA designation',['Facts ✓; superior results ✗; partial designation ✗; unpaid dues ✗','사실 OK, 과장 X']],
+ ['VII(A)',['Criticizing CFA Institute ✓; revealing topics tested or not tested ✗','비판 OK, 출제범위 X']],
+])}
+<h3>Final checklist · 시험장 체크리스트</h3>
+${li([
+ ['Who is harmed? Market → II · Clients → III · Employer → IV · CFA Institute → VII','누가 피해를 보나?'],
+ ['A plausible excuse does not cure a prohibited act — except intent-based Standards (II(B), I(C)).','핑계는 면책 사유가 아님.'],
+ ['“Most appropriate action” → usually <b>disclose · obtain written consent · dissociate · decline in writing</b>.','정답 후보 4가지.'],
+])}
+</div>`;
+
+/* ---------- QUIZ DATA (original practice questions) ---------- */
+const Q=[
+// R89
+{r:'R89',s:'',q:'Within an ethical decision-making framework, which activity is <b>most likely</b> part of the <b>Consider</b> phase?',o:['Identifying conflicts of interest among stakeholders.','Seeking guidance from a mentor or the firm\'s compliance department.','Evaluating whether the decision produced the anticipated outcome.'],a:1,e:'The Consider phase includes situational influences, <b>seeking additional guidance</b>, and alternative actions. Identifying conflicts is Identify; evaluating outcomes is Reflect.',k:'조언 구하기는 Consider 단계. A는 Identify, C는 Reflect.'},
+{r:'R89',s:'',q:'Which of the following is <b>least likely</b> a situational influence on ethical behavior?',o:['Pressure to meet quarterly sales targets set by a supervisor.','The prospect of a large year-end bonus.','An individual\'s lack of personal ethical principles.'],a:2,e:'Situational influences are <b>external</b> (social pressure, loyalty, money, prestige). A lack of ethical principles is an internal, personal factor.',k:'윤리원칙 결여는 내부(개인) 요인.'},
+{r:'R89',s:'',q:'Compared with laws and regulations, ethical principles most likely:',o:['are more specific and easier to enforce.','often set a higher standard and require more judgment.','always prohibit actions that are illegal.'],a:1,e:'Ethics often sets a <b>higher standard</b> and requires <b>more judgment</b>. Laws are more specific. Some illegal acts (civil disobedience, whistle-blowing) may be ethical.',k:'윤리 = 더 높은 기준, 더 많은 판단. 불법이라고 다 비윤리는 아님.'},
+{r:'R89',s:'',q:'Which statement about suitability and fiduciary standards is <b>most accurate</b>?',o:['A suitability standard requires acting in the client\'s best interests.','A fiduciary standard is stronger than a suitability standard.','Both standards impose identical obligations.'],a:1,e:'Suitability is the <b>match</b> between client requirements and security characteristics. Fiduciary requires acting in the client\'s <b>best interests</b> and is <b>stronger</b>.',k:'Fiduciary가 더 강함.'},
+{r:'R89',s:'',q:'High ethical standards are especially important in investment management <b>most likely</b> because:',o:['investment advice is an intangible product whose quality is difficult to evaluate.','regulators require all advisers to be fiduciaries.','clients usually have more expertise than their advisers.'],a:0,e:'Investment advice and management are <b>intangible products</b>, so quality and value are harder to evaluate than for tangible products; trust takes on greater importance.',k:'무형 상품이라 품질 평가가 어려움 → 신뢰가 더 중요.'},
+// R90
+{r:'R90',s:'',q:'Which group has <b>overall responsibility</b> for the CFA Institute Professional Conduct Program?',o:['Board of Governors.','Disciplinary Review Committee.','Professional Conduct staff.'],a:0,e:'The <b>Board of Governors</b> has overall responsibility; the DRC enforces the Code and Standards; staff conduct inquiries.',k:'이사회 = 전반 책임 / DRC = 집행 / 직원 = 조사.'},
+{r:'R90',s:'',q:'An inquiry by Professional Conduct staff is <b>least likely</b> to be prompted by:',o:['a written complaint from a client.','self-disclosure on the annual Professional Conduct Statement.','a decline in the member\'s portfolio returns relative to its benchmark.'],a:2,e:'Inquiries arise from self-disclosure, written complaints, public sources, proctor reports, and exam/social media monitoring. Poor performance is not a trigger.',k:'성과 부진은 조사 사유가 아님.'},
+{r:'R90',s:'',q:'A member rejects the disciplinary sanction proposed by Professional Conduct staff. The matter is <b>most likely</b>:',o:['closed with a cautionary letter.','referred to a disciplinary review panel for a hearing.','decided immediately by the Board of Governors.'],a:1,e:'If the sanction is rejected, the matter is referred to a <b>disciplinary review panel</b> of CFA Institute members for a hearing.',k:'거부 시 징계심사패널 청문.'},
+{r:'R90',s:'',q:'Which of the following is a component of the CFA Institute <b>Code of Ethics</b>?',o:['Disclose referral fees to clients and prospective clients.','Place the integrity of the investment profession and the interests of clients above their own personal interests.','Retain records supporting recommendations for at least seven years.'],a:1,e:'B is one of the six Code components. Referral fees (VI(C)) and record retention (V(C)) are Standards.',k:'B만 Code. A·C는 Standards.'},
+// R91 I
+{r:'R91',s:'I',q:'Kim, CFA, lives in Country X (no insider-trading law) and does business in Country Y, whose law is stricter than the Code and Standards. Kim must comply with:',o:['the Code and Standards, because they are stricter than Country X law.','Country Y law, because it is the strictest applicable rule.','Country X law, because it is her country of residence.'],a:1,e:'Under I(A), follow the <b>most strict</b> of the applicable laws, rules, and the Code and Standards.',k:'가장 엄격한 것.'},
+{r:'R91',s:'I',q:'Lopez, CFA, finds that her firm\'s marketing brochure overstates the team\'s experience. She tells her supervisor, but nothing changes. Her <b>most appropriate</b> action is to:',o:['report the firm to CFA Institute and regulators, as the Standards require.','dissociate from the activity by refusing to use the brochure and document what she found.','take no further action because she has informed her supervisor.'],a:1,e:'If the firm will not remedy the violation, she must <b>dissociate</b> and keep records. Reporting to CFA Institute is strongly encouraged but <b>not required</b>.',k:'분리 + 기록. CFA 신고는 의무 아님.'},
+{r:'R91',s:'I',q:'Park, CFA, is invited on a site visit by a company he covers. Commercial flights to the factory are readily available, but the company offers its private jet and a stay at a luxury resort. To comply with I(B), Park should <b>most likely</b>:',o:['accept, since all analysts on the trip receive the same treatment.','pay for commercial travel and his own lodging.','accept the jet but pay for lodging.'],a:1,e:'Members should pay their own travel when practicable and use corporate aircraft only when commercial travel is not an alternative. Luxury lodging could compromise objectivity.',k:'상업 항공편 있으면 직접 부담.'},
+{r:'R91',s:'I',q:'An issuer pays Chen\'s research firm to cover its stock. Which arrangement is <b>most likely</b> consistent with I(B)?',o:['A flat fee, with the report disclosing that it is issuer-paid.','A bonus if the report rates the stock “Buy.”','A fee tied to the stock\'s price change after publication, disclosed in the report.'],a:0,e:'Issuer-paid research is acceptable if compensation is a <b>flat rate not tied to conclusions or market impact</b> and the arrangement is <b>disclosed</b>.',k:'정액 + 공시.'},
+{r:'R91',s:'I',q:'After a strong year, a client sends Ito, CFA, a case of expensive wine as thanks. Under the Standards, Ito should:',o:['obtain written consent from her employer before accepting.','disclose the gift to her employer, before accepting if possible.','refuse the gift because it exceeds token value.'],a:1,e:'A gift for <b>past</b> performance from a client falls under I(B): <b>disclose</b> to the employer (before acceptance if possible). Written consent is required for future-performance arrangements (IV(B)).',k:'과거 성과 선물 → 공시.'},
+{r:'R91',s:'I',q:'Which statement in a sales meeting <b>most likely</b> violates I(C)?',o:['“U.S. Treasury bills are backed by the U.S. government.”','“Our private credit fund will return at least 9% a year.”','“This bank CD is insured up to the deposit-insurance limit.”'],a:1,e:'Guaranteeing a specific return on a security <b>without an explicit guarantee</b> is misrepresentation. A and C describe real guarantees.',k:'보증 없는 수익 보장 = 위반.'},
+{r:'R91',s:'I',q:'Analyst Wu uses a GDP table from the national statistics office and a valuation model built by a competitor, citing neither. Wu has violated I(C) by:',o:['using the GDP table only.','using the competitor\'s model only.','using both.'],a:1,e:'Data from <b>recognized statistical reporting services</b> need not be cited. Using another firm\'s model without credit is <b>plagiarism</b>.',k:'공인 통계는 OK, 남의 모델 무인용은 표절.'},
+{r:'R91',s:'I',q:'Which conduct is <b>most likely</b> a violation of I(D) Misconduct?',o:['Being arrested at a peaceful protest for blocking a road.','Inflating a travel expense claim, then repaying it after the supervisor asks.','Writing a negative but accurate review of a competitor\'s fund.'],a:1,e:'Inflating expenses involves <b>dishonesty</b> and reflects on integrity — repayment does not cure it. Civil disobedience does not necessarily reflect on honesty.',k:'경비 부풀리기 = 부정행위(반납해도).'},
+// II
+{r:'R91',s:'II',q:'Rao, CFA, combines public filings with conversations with a company\'s suppliers and a count of trucks at its plant, and concludes sales are weakening. None of the pieces is material on its own. Rao issues a “Sell.” Rao has:',o:['violated II(A) by acting on nonpublic information.','not violated the Standards.','an obligation to make the supplier information public before acting.'],a:1,e:'Combining public and <b>non-material nonpublic</b> information is the <b>mosaic theory</b> — permitted.',k:'모자이크 이론 → 위반 아님.'},
+{r:'R91',s:'II',q:'Dunn, CFA, hears from her brother, a company accountant, that earnings due tomorrow are far below forecasts. A client order to buy the stock arrives. Dunn\'s <b>most appropriate</b> action is to:',o:['execute the client order without comment.','tell the client to wait one day without explaining why.','inform compliance that she has material nonpublic information so the stock can be restricted.'],a:2,e:'She must not act or cause others to act. Telling compliance so the stock is placed on a restricted list is the appropriate step.',k:'컴플라이언스에 알려 제한 종목 지정.'},
+{r:'R91',s:'II',q:'Information disclosed only to analysts on a company conference call is <b>best</b> described as:',o:['public, because many analysts heard it.','nonpublic until disseminated to the marketplace.','immaterial, because it was disclosed voluntarily.'],a:1,e:'An <b>analyst conference call is not public disclosure</b>; selective disclosure creates insider-trading risk.',k:'애널리스트 콜 = 미공개.'},
+{r:'R91',s:'II',q:'Green holds a short position and posts false claims about the company\'s management on investor message boards. Green has <b>most likely</b> violated:',o:['Market Manipulation.','Fair Dealing.','Communication with Clients.'],a:0,e:'Spreading false information to affect prices with the intent to mislead is <b>information-based market manipulation</b> (II(B)).',k:'허위정보 유포 = 시장조작.'},
+{r:'R91',s:'II',q:'A hedge fund manager buys a stock and simultaneously writes puts on it as part of a disclosed arbitrage strategy. The trades move the price slightly. The manager has <b>most likely</b>:',o:['violated II(B) because prices moved.','not violated the Standards.','violated VI(A) by not notifying clients of each trade in advance.'],a:1,e:'II(B) requires <b>intent to mislead</b>. A legitimate strategy known to investors is not manipulation, and there is no duty to pre-disclose each trade.',k:'의도 없는 정당한 전략 → 위반 아님.'},
+// III
+{r:'R91',s:'III',q:'A manager pays for the firm\'s office rent using client brokerage commissions (soft dollars). This <b>most likely</b> violates:',o:['III(A) Loyalty, Prudence, and Care.','III(B) Fair Dealing.','No Standard, if clients gave the manager discretion over brokerage.'],a:0,e:'Soft dollars are the <b>client\'s asset</b> and must benefit the client. Paying the firm\'s operating expenses violates III(A).',k:'소프트달러로 운영비 → III(A) 위반.'},
+{r:'R91',s:'III',q:'A plan sponsor asks the manager of its underfunded pension plan to invest much more aggressively. The manager should:',o:['comply, because the duty of loyalty is owed to the sponsor.','decline if the added risk is not in the best interest of the plan\'s beneficiaries.','comply, but only after disclosing the risk to the sponsor.'],a:1,e:'For pension plans, the duty of loyalty is owed to the <b>beneficiaries</b>, not the sponsor.',k:'충실의무 = 수익자.'},
+{r:'R91',s:'III',q:'Moss, CFA, votes proxies only when the expected benefit exceeds the cost, and discloses this policy to clients. Moss is:',o:['in compliance with the Standards.','violating III(A) because all proxies must be voted.','violating I(D) Misconduct.'],a:0,e:'Due to cost-benefit considerations, it <b>may not be necessary to vote all proxies</b>.',k:'비용-편익 기반 의결권 정책 OK.'},
+{r:'R91',s:'III',q:'An analyst changes her rating from “Buy” to “Sell” and phones her five largest institutional clients before emailing the change to everyone else. This <b>most likely</b>:',o:['complies, because institutional clients pay higher fees.','violates III(B) Fair Dealing.','complies if the firm discloses tiered service levels.'],a:1,e:'Changes must be disseminated so all clients have a <b>fair opportunity to act</b>. Giving some clients the change first disadvantages others. Premium services can add depth, not timing advantages on recommendation changes.',k:'일부 고객에게 먼저 알림 → 공정대우 위반.'},
+{r:'R91',s:'III',q:'An oversubscribed IPO suits a growth strategy that includes several accounts of employees\' family members (who pay standard fees). The firm should allocate shares:',o:['pro rata to all growth accounts, excluding family accounts.','pro rata to all growth accounts, including family accounts.','to family accounts only after other clients are filled.'],a:1,e:'Family-member accounts that are client accounts are treated like <b>any other client</b> — no advantage, no disadvantage.',k:'가족 고객계좌 포함 비례 배분.'},
+{r:'R91',s:'III',q:'A client asks his adviser to buy a speculative stock that conflicts with his IPS. The position would be small relative to the total portfolio. The adviser should <b>first</b>:',o:['refuse the trade.','discuss with the client why the trade is unsuitable under the IPS.','update the IPS to a higher risk tolerance.'],a:1,e:'For unsolicited trades, discuss the unsuitability first. With a <b>minimal</b> effect, the adviser may then follow firm policy with the client\'s acknowledgment.',k:'먼저 논의. 영향 작으면 회사 정책.'},
+{r:'R91',s:'III',q:'The manager of an S&P 500 index fund buys several small-cap stocks outside the index to boost returns. The manager has <b>most likely</b> violated:',o:['III(C) Suitability.','V(B) Communication with Clients.','No Standard, if the fund outperforms.'],a:0,e:'When managing to a stated mandate, the manager may take only actions <b>consistent with the stated objectives and constraints</b>.',k:'mandate 위반 = III(C).'},
+{r:'R91',s:'III',q:'A fact sheet shows a fund\'s 1-year return of 41%, its best year of the last six, with a footnote saying so. This is:',o:['acceptable because the footnote discloses the period.','a violation of III(D) Performance Presentation.','acceptable if the return is gross of fees.'],a:1,e:'Selecting the best period creates a misleading impression; performance must be <b>fair, accurate, and complete</b>. A footnote does not cure it.',k:'최고 연도만 → 각주가 있어도 위반.'},
+{r:'R91',s:'III',q:'Which statement about III(E) Preservation of Confidentiality is <b>least</b> accurate?',o:['It applies only to current clients.','Members may share confidential client information with the CFA Institute PCP.','Information about a client\'s illegal activities may be disclosed to authorities.'],a:0,e:'Confidentiality applies to <b>current, former, and prospective</b> clients.',k:'현재 고객만 → 틀림.'},
+// IV
+{r:'R91',s:'IV',q:'Before resigning, Hale, CFA, plans her own advisory firm. Which action is <b>least likely</b> a violation of her duty to her employer?',o:['Leasing office space and equipment for the new firm.','Calling her employer\'s clients to tell them about the new firm.','Copying her employer\'s client contact list.'],a:0,e:'Making <b>preparations</b> is allowed. Soliciting clients before leaving and taking client lists violate IV(A).',k:'준비는 OK. 퇴사 전 권유·명단 반출 X.'},
+{r:'R91',s:'IV',q:'Ortiz, CFA, built a pricing model at his old firm and was not allowed to copy it. At his new firm he rebuilds it from memory. He <b>most likely</b>:',o:['violated IV(A) because the model belongs to his former employer.','complies if he also re-creates the supporting documentation.','complies only if he changes the model substantially.'],a:1,e:'He may recreate from memory, but must <b>re-create supporting documentation</b> to satisfy V(C) Record Retention.',k:'기억 재구성 OK + 문서 재작성.'},
+{r:'R91',s:'IV',q:'A client offers Bauer, CFA, a week at a resort if her account beats its benchmark next quarter. Bauer must:',o:['inform her employer; permission is not needed.','obtain her employer\'s written consent before accepting.','reject the offer because it conflicts with other clients.'],a:1,e:'A benefit tied to <b>future performance</b> is an additional compensation arrangement under IV(B) — requires <b>written consent</b> (email acceptable).',k:'미래 성과 → 서면 동의.'},
+{r:'R91',s:'IV',q:'A supervisor finds suspicious trades by a trader. He restricts the trader\'s duties during the investigation and refers the matter to compliance. He has:',o:['complied with IV(C).','violated IV(C) by failing to prevent the trades.','violated IV(C) by restricting duties before the investigation ends.'],a:0,e:'Supervisors should respond promptly, investigate, and <b>limit the suspected employee\'s activities</b> during the investigation.',k:'조사 + 활동 제한 = 적절.'},
+{r:'R91',s:'IV',q:'Newly promoted, Diaz, CFA, finds her firm has no written supervisory procedures. Her <b>most appropriate</b> action is to:',o:['accept the role and draft procedures herself later.','decline in writing to accept supervisory responsibility until adequate procedures are adopted.','resign from the firm.'],a:1,e:'With no or inadequate compliance procedures, a member should <b>decline in writing</b> to accept supervisory responsibility until reasonable procedures are adopted.',k:'서면으로 감독 책임 거절.'},
+{r:'R91',s:'IV',q:'Supervisors who delegate supervisory duties to subordinates:',o:['are no longer responsible for those duties.','retain responsibility for instructing subordinates on preventing and detecting violations.','are responsible only for subordinates who are CFA members.'],a:1,e:'Delegation does not remove responsibility; supervision covers <b>all</b> subordinates, members or not.',k:'위임해도 책임 유지.'},
+// V
+{r:'R91',s:'V',q:'Which action is <b>required</b> (not merely recommended) under V(A) when a firm relies on third-party research?',o:['Base analyst compensation on research quality.','Review the research\'s assumptions and evaluate its independence and objectivity.','Adopt written scenario-testing procedures for all models.'],a:1,e:'Reviewing assumptions and evaluating objectivity is <b>required</b>. A and C are recommended firm policies.',k:'제3자 리서치 검토 = 의무.'},
+{r:'R91',s:'V',q:'Lee, a keen cyclist, rides a new bike and issues a “Buy” on its maker without reviewing its financial statements. Lee has <b>most likely</b> violated:',o:['V(A) Diligence and Reasonable Basis.','III(C) Suitability.','No Standard, since he tested the product.'],a:0,e:'A recommendation needs a <b>reasonable and adequate basis</b> supported by research and investigation.',k:'재무분석 없는 추천 → V(A).'},
+{r:'R91',s:'V',q:'A report states, “EPS will grow 15% next year,” based on the analyst\'s model, without qualification. This <b>most likely</b> violates:',o:['V(B), because it does not distinguish opinion from fact.','I(C), because forecasts are prohibited.','No Standard, because the model is reasonable.'],a:0,e:'Expectations from statistical modeling are <b>not facts</b>; V(B) requires distinguishing fact from opinion.',k:'예측을 사실처럼 → V(B).'},
+{r:'R91',s:'V',q:'An adviser switches from a fundamental to a quantitative stock-selection process. Under V(B), she must:',o:['disclose the change promptly to clients and prospects.','disclose it at the next annual review.','disclose it only if performance changes.'],a:0,e:'Members must <b>promptly disclose</b> changes that might materially affect the investment process.',k:'프로세스 변경 즉시 공시.'},
+{r:'R91',s:'V',q:'With no regulatory requirement or firm policy in place, the Standards recommend keeping research records for at least:',o:['five years.','seven years.','ten years.'],a:1,e:'V(C) recommends a <b>seven-year</b> minimum holding period.',k:'최소 7년.'},
+// VI
+{r:'R91',s:'VI',q:'Flores, CFA, is writing a report on Delta Corp. Her husband sits on Delta\'s board, and she owns no shares. Under VI(A), she should:',o:['disclose nothing because she owns no shares.','disclose her husband\'s board position to her employer and in the report.','stop covering Delta in all cases.'],a:1,e:'Board service by a close relative could impair objectivity; <b>avoid or fully disclose</b> in a prominent, plain-language way.',k:'배우자 이사회 → 공시.'},
+{r:'R91',s:'VI',q:'An analyst decides a stock should be sold. He advises clients holding it to sell, waits a day so they can act, then sells his own shares. This is:',o:['a violation of VI(B).','a violation of III(B).','consistent with VI(B).'],a:2,e:'Clients had an <b>adequate opportunity to act</b> before his personal trade.',k:'고객 기회 보장 후 개인 매도 = OK.'},
+{r:'R91',s:'VI',q:'A portfolio manager buys a stock for her personal account the day before buying a large block for client accounts. This is <b>best</b> described as:',o:['permitted if her execution price is worse than the clients\'.','front-running, which violates VI(B).','permitted if the firm has no personal trading policy.'],a:1,e:'Trading ahead of anticipated client trades is <b>front-running</b>. A missing firm policy does not excuse it.',k:'선행매매 = 위반.'},
+{r:'R91',s:'VI',q:'Reed, CFA, receives $500 for each client he refers to a tax adviser. To comply with VI(C), Reed must disclose:',o:['only that a referral arrangement exists, after the client signs up.','the arrangement and the amount of the fee, before the client engages the adviser.','nothing, if the tax adviser\'s fees are competitive.'],a:1,e:'Disclose the <b>nature and value</b> of the consideration so the client can judge cost and <b>partiality</b> — before the relationship begins.',k:'성격·금액을 사전에 공시.'},
+// VII
+{r:'R91',s:'VII',q:'After the exam, a Level II candidate posts: “I studied hard for currency arbitrage, and there were zero questions on it.” The candidate has:',o:['not violated the Standards; it is an opinion.','violated VII(A) by revealing exam content.','violated VII(B) by misrepresenting candidacy.'],a:1,e:'Revealing topics tested or not tested compromises exam integrity (VII(A)). Opinions about CFA Institute are allowed; exam content is not.',k:'미출제 주제 공개도 VII(A) 위반.'},
+{r:'R91',s:'VII',q:'Which statement in a promotional brochure <b>complies</b> with VII(B)?',o:['“As a CFA charterholder, Ana will achieve superior returns.”','“Ana passed all three levels of the CFA exam on her first attempts.”','“Ana Gómez, C.F.A., Senior Analyst.”'],a:1,e:'Stating facts about passing is acceptable. A implies superior performance; C misuses the mark (CFA has no periods).',k:'사실 진술만 OK.'},
+{r:'R91',s:'VII',q:'At the end of the exam the proctor says “pencils down.” Kumar quickly fills in one more answer. Kumar has <b>most likely</b>:',o:['not violated the Standards because it was one answer.','violated VII(A).','not violated the Standards because others kept writing.'],a:1,e:'Not following exam rules violates <b>VII(A)</b>, regardless of how many answers or what others did.',k:'시험 규정 위반 = VII(A).'},
+// R92
+{r:'R92',s:'GIPS',q:'Which entity can <b>least likely</b> claim compliance with GIPS?',o:['An asset management subsidiary held out to clients as a distinct business.','A software vendor whose products calculate GIPS returns.','The investment management division of a bank, held out as a separate firm.'],a:1,e:'Only firms that <b>manage assets for others</b> may claim compliance. Software developers may <b>endorse</b> GIPS but not claim compliance.',k:'소프트웨어 회사 = 준수 주장 불가.'},
+{r:'R92',s:'GIPS',q:'A GIPS-compliant composite must include:',o:['all fee-paying, discretionary portfolios managed to that strategy, including terminated accounts.','only portfolios managed for the full reporting period.','both discretionary and nondiscretionary portfolios with the same strategy.'],a:0,e:'Composites include <b>all fee-paying discretionary portfolios (current and past)</b> managed to the same strategy; nondiscretionary accounts are excluded.',k:'모든 재량·수수료 포트폴리오 + 해지 계좌.'},
+{r:'R92',s:'GIPS',q:'A firm puts all discretionary fee-paying accounts — value and growth strategies together — into a single composite. Does this meet GIPS?',o:['Yes.','No, because the strategies are not similar.','No, because nondiscretionary accounts are excluded.'],a:1,e:'A composite groups portfolios with a <b>similar</b> strategy, objective, or mandate. Mixing value and growth fails.',k:'가치·성장 혼합 → 불가.'},
+{r:'R92',s:'GIPS',q:'Which statement about GIPS verification is <b>most accurate</b>?',o:['It may be performed on a single composite.','It is required to claim GIPS compliance.','It is performed by a third party on a firmwide basis.'],a:2,e:'Verification is <b>optional</b>, done by a <b>third party</b>, and applies to the <b>entire firm</b>.',k:'제3자·전사적, 선택 사항.'},
+{r:'R92',s:'GIPS',q:'A client prohibits the manager from holding any technology stocks, preventing the growth strategy from being implemented. Under GIPS, the firm may:',o:['classify the account as nondiscretionary and exclude it from the composite.','include it in the composite with a footnote.','exclude it only if its returns are below the composite average.'],a:0,e:'If client restrictions prevent the intended strategy, the portfolio may be <b>nondiscretionary</b> and excluded, per the firm\'s criteria.',k:'제약으로 전략 불가 → 비재량 → 제외.'},
+{r:'R92',s:'GIPS',q:'Composite returns under GIPS are calculated as:',o:['a simple average of portfolio returns.','an asset-weighted average of portfolio returns.','the return of the largest portfolio.'],a:1,e:'Section 3: composite returns are the <b>asset-weighted average</b> (not a simple average).',k:'자산가중평균.'},
+// R93 integrated
+{r:'R93',s:'Mixed',q:'A retired manager owns a small-cap stock he wants to sell. He posts online: “This stock is going up once patents are approved — buy below $3.” He has <b>most likely</b> violated the Standards related to:',o:['Integrity of Capital Markets only.','Conflicts of Interest only.','both Integrity of Capital Markets and Conflicts of Interest.'],a:2,e:'Hyping a stock to sell into the rise is <b>market manipulation</b> (II(B)), and failing to disclose his holding is an undisclosed <b>conflict</b> (VI(A)).',k:'II(B) + VI(A) 동시 위반.'},
+{r:'R93',s:'Mixed',q:'Investment banking asks the head of research to change a “Hold” to “Buy” on a banking client. The head of research\'s <b>most appropriate</b> action is to:',o:['place the stock on a restricted list and publish only factual information.','assign a new analyst without mentioning the request.','tell the current analyst to reconsider a “Buy.”'],a:0,e:'Placing the issuer on a <b>restricted list</b> and limiting research to factual information protects <b>independence and objectivity</b> (I(B)).',k:'제한 종목 지정, 사실 정보만.'},
+{r:'R93',s:'Mixed',q:'Kassim, a candidate, buys a stock for himself right before publishing a “Buy.” His firm has no personal trading policy, and Musa, CFA, head of compliance, has never adopted one. Who most likely violated the Standards?',o:['Only Kassim.','Only Musa.','Both Kassim and Musa.'],a:2,e:'Kassim front-ran his own recommendation (VI(B)). Musa, as a supervisor, failed to have adequate procedures (IV(C)).',k:'둘 다 위반: 선행매매 + 감독 책임.'},
+{r:'R93',s:'Mixed',q:'A financial planner paid on product sales tells a couple to move $200,000 into the firm\'s fund despite a $40,000 surrender penalty, saying “the better returns will more than cover the penalty.” Her actions are:',o:['acceptable if the fund is suitable.','a violation, because she implies a guaranteed return.','acceptable because she disclosed the penalty.'],a:1,e:'Assuring that returns will cover the penalty implies a <b>guaranteed return</b> — I(C) Misrepresentation (and the sales-based pay is a conflict to disclose).',k:'수익 보장 암시 = I(C).'},
+];
+
+/* ---------- RENDER ---------- */
+function renderQuiz(){
+  return `<h2 class="rt">Practice · 예상문제</h2>
+  <p class="rsub">시험 문제 형식(A/B/C 3지선다)으로 새로 만든 문제 ${Q.length}개 · 선택하면 바로 정답과 영·한 해설이 나옵니다</p>
+  <div class="qbar">
+    <div class="score" id="score"></div>
+    <div class="filters" id="qf">${['All','R89','R90','R91','R92','R93','Wrong'].map((x,i)=>`<button class="fbtn" aria-pressed="${i===0}" data-qf="${x}">${x==='All'?'전체':x==='Wrong'?'틀린 문제':x}</button>`).join('')}</div>
+    <button class="qbtn" id="qreset">Reset · 다시 풀기</button>
+  </div>
+  <div id="qlist"></div>
+  <p class="note">문제는 Schweser 노트와 첨부하신 Test Bank의 출제 패턴을 참고해 새로 작성했습니다. 풀이 기록은 이 브라우저에만 저장됩니다.</p>`;
+}
+let ANS={};
+try{ANS=JSON.parse(localStorage.getItem('eth-ans')||'{}')}catch(e){ANS={}}
+const saveAns=()=>{try{localStorage.setItem('eth-ans',JSON.stringify(ANS))}catch(e){}};
+let qfilter='All';
+function drawQ(){
+  const list=$('#qlist'); if(!list) return;
+  const items=Q.map((q,i)=>({q,i})).filter(({q,i})=>qfilter==='All'||(qfilter==='Wrong'?(ANS[i]!==undefined&&ANS[i]!==q.a):q.r===qfilter));
+  list.innerHTML=items.length?items.map(({q,i})=>{
+    const a=ANS[i]; const done=a!==undefined; const g=q.s&&G[q.s]?q.s:null;
+    return `<div class="q" id="q${i}">
+     <div class="meta"><span class="tag">Q${i+1}</span><span class="tag">${q.r}</span>${q.s?`<span class="tag std" style="--c:${g?cvar(g):'var(--muted)'}">${g?'Standard '+q.s:q.s}</span>`:''}</div>
+     <p class="stem">${q.q}</p>
+     <div class="opts">${q.o.map((o,j)=>`<button class="opt ${done?(j===q.a?'right':(j===a?'wrong':'')):''}" data-q="${i}" data-o="${j}" ${done?'disabled':''}><span class="l">${'ABC'[j]}.</span><span>${o}</span></button>`).join('')}</div>
+     ${done?`<div class="exp"><div class="verdict ${a===q.a?'ok':'ng'}">${a===q.a?'Correct · 정답':'Incorrect · 오답'} — Answer ${'ABC'[q.a]}</div><p class="en" style="margin:0 0 4px">${q.e}</p><p class="ko" style="margin:0">${q.k}</p></div>`:''}
+    </div>`}).join(''):`<p class="note">${qfilter==='Wrong'?'아직 틀린 문제가 없습니다.':'문제가 없습니다.'}</p>`;
+  const tried=Object.keys(ANS).length, right=Object.entries(ANS).filter(([i,v])=>Q[i]&&Q[i].a===v).length;
+  $('#score').innerHTML=`<span class="ok">${right}</span> correct · <span class="ng">${tried-right}</span> wrong · ${Q.length-tried} left`;
+}
+
+const CONTENT={overview:()=>OVERVIEW,r89:()=>R89,r90:()=>R90,r91:R91,r92:()=>R92,r93:R93,sheet:()=>SHEET,quiz:renderQuiz};
+const tabsEl=$('#tabs');
+tabsEl.innerHTML=TABS.map(t=>`<button role="tab" id="t-${t[0]}" data-tab="${t[0]}" aria-selected="false">${t[1]}<small>${t[2]}</small></button>`).join('');
+function show(id,scrollTo){
+  if(!CONTENT[id]) id='overview';
+  $('#main').innerHTML=`<section class="tab" role="tabpanel">${CONTENT[id]()}</section><footer>Based on Schweser Notes 2025, Readings 89–93 · Standards text from the Standards of Practice Handbook, 12th ed. Practice questions are original.</footer>`;
+  document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===id));
+  try{localStorage.setItem('eth-tab',id)}catch(e){}
+  if(id==='quiz') drawQ();
+  if(scrollTo){const el=document.getElementById(scrollTo); if(el) setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),30);} else window.scrollTo(0,0);
+  $('#t-'+id).scrollIntoView({block:'nearest',inline:'nearest'});
+}
+tabsEl.addEventListener('click',e=>{const b=e.target.closest('button[data-tab]'); if(b) show(b.dataset.tab)});
+document.addEventListener('click',e=>{
+  const m=e.target.closest('[data-jump]'); if(m){show('r91','g-'+m.dataset.jump);return}
+  const c=e.target.closest('.chip[data-g]'); if(c){document.getElementById('g-'+c.dataset.g).scrollIntoView({behavior:'smooth',block:'start'});return}
+  const o=e.target.closest('.opt[data-q]'); if(o&&!o.disabled){ANS[+o.dataset.q]=+o.dataset.o; saveAns(); const y=window.scrollY; drawQ(); window.scrollTo(0,y); return}
+  const f=e.target.closest('[data-qf]'); if(f){qfilter=f.dataset.qf; document.querySelectorAll('[data-qf]').forEach(b=>b.setAttribute('aria-pressed',b===f)); drawQ(); return}
+  if(e.target.closest('#qreset')){ANS={}; saveAns(); drawQ(); return}
+  const cg=e.target.closest('[data-cg]'); if(cg){const g=cg.dataset.cg; document.querySelectorAll('[data-cg]').forEach(b=>b.setAttribute('aria-pressed',b===cg)); document.querySelectorAll('#casetbl tbody tr').forEach(r=>r.hidden=!(g==='All'||r.dataset.g===g)); return}
+});
+let start='overview';
+const h=(location.hash||'').slice(1);
+if(CONTENT[h]) start=h; else {try{const s=localStorage.getItem('eth-tab'); if(s&&CONTENT[s]) start=s}catch(e){}}
+show(start);
+</script>
+
+</body></html>
